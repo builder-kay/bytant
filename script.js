@@ -79,14 +79,57 @@ const suggestionModal = wireModal("suggestion-modal", "close-suggestion-modal");
 const contactModal = wireModal("contact-modal", "close-contact-modal");
 const servicesModal = wireModal("services-modal", "close-services-modal");
 
-const helpButton = document.getElementById("help-us-btn");
-if (helpButton) {
-  helpButton.addEventListener("click", () => toggleModal(helpModal, true));
+const menuToggle = document.getElementById("menu-toggle");
+const drawer = document.getElementById("mobile-drawer");
+const drawerBackdrop = document.getElementById("drawer-backdrop");
+const drawerClose = document.getElementById("drawer-close");
+
+function toggleDrawer(shouldOpen) {
+  if (!drawer || !drawerBackdrop || !menuToggle) return;
+  drawer.classList.toggle("is-open", shouldOpen);
+  drawerBackdrop.classList.toggle("is-open", shouldOpen);
+  document.body.classList.toggle("drawer-open", shouldOpen);
+  drawer.setAttribute("aria-hidden", String(!shouldOpen));
+  menuToggle.setAttribute("aria-expanded", String(shouldOpen));
 }
 
-const contactButton = document.getElementById("nav-cta-btn");
-if (contactButton) {
-  contactButton.addEventListener("click", () => toggleModal(contactModal, true));
+function closeDrawer() {
+  toggleDrawer(false);
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = drawer ? drawer.classList.contains("is-open") : false;
+    toggleDrawer(!isOpen);
+  });
+}
+
+[drawerBackdrop, drawerClose].forEach((control) => {
+  if (control) control.addEventListener("click", closeDrawer);
+});
+
+document.querySelectorAll(".drawer-links a, .drawer-brand").forEach((link) => {
+  link.addEventListener("click", closeDrawer);
+});
+
+document.querySelectorAll("#help-us-btn, [data-open-help]").forEach((button) => {
+  button.addEventListener("click", () => {
+    closeDrawer();
+    toggleModal(helpModal, true);
+  });
+});
+
+document.querySelectorAll("#nav-cta-btn, [data-open-contact]").forEach((button) => {
+  button.addEventListener("click", () => {
+    closeDrawer();
+    toggleModal(contactModal, true);
+  });
+});
+
+if (window.matchMedia) {
+  window.matchMedia("(min-width: 861px)").addEventListener("change", (event) => {
+    if (event.matches) closeDrawer();
+  });
 }
 
 const contactServicesLink = document.getElementById("contact-services-link");
@@ -248,5 +291,6 @@ setupProductCarousel();
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
+  closeDrawer();
   [helpModal, donateModal, ideaModal, suggestionModal, contactModal, servicesModal].forEach((modal) => toggleModal(modal, false));
 });

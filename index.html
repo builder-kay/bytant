@@ -36,10 +36,39 @@
       <a href="#team">Team</a>
     </nav>
     <div class="nav-actions">
-      <button class="ghost-btn" id="help-us-btn" type="button">Buy us coffee</button>
+      <button class="ghost-btn" id="help-us-btn" type="button"><span class="desktop-label">Buy us coffee</span><span class="mobile-label">Coffee</span></button>
       <button class="primary-btn" id="nav-cta-btn" type="button">Contact</button>
     </div>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-drawer" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a class="drawer-brand" href="#home" aria-label="Bytant home">
+        <img src="assets/img/hero logo.png" alt="Bytant Innovative Group logo">
+        <span>Bytant</span>
+      </a>
+      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close navigation">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="drawer-links" aria-label="Mobile navigation">
+      <a href="#mission">Mission</a>
+      <a href="#identity">Identity</a>
+      <a href="#products">Products</a>
+      <a href="#open-source">Open Source</a>
+      <a href="#services">Services</a>
+      <a href="#values">Values</a>
+      <a href="#team">Team</a>
+    </nav>
+    <div class="drawer-actions">
+      <button class="ghost-btn" type="button" data-open-help>Buy us coffee</button>
+      <button class="primary-btn" type="button" data-open-contact>Contact</button>
+    </div>
+  </aside>
 
   <main id="home">
     <section class="hero section">
