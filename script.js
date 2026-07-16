@@ -152,6 +152,53 @@ document.querySelectorAll("[data-help-action]").forEach((button) => {
   });
 });
 
+function setupActiveNavigation() {
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"], .drawer-links a[href^="#"]'));
+  if (!navLinks.length) return;
+
+  const sectionIds = [...new Set(navLinks.map((link) => link.getAttribute("href")).filter((href) => href && href.length > 1))];
+  const sections = sectionIds
+    .map((href) => document.getElementById(href.slice(1)))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  function setActiveLink(activeId) {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${activeId}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateActiveFromScroll() {
+    const offset = window.innerHeight * 0.38;
+    const current = sections.reduce((active, section) => {
+      const top = section.getBoundingClientRect().top;
+      return top <= offset ? section : active;
+    }, null);
+
+    setActiveLink(current ? current.id : null);
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href");
+      if (href && href.length > 1) setActiveLink(href.slice(1));
+    });
+  });
+
+  updateActiveFromScroll();
+  window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
+  window.addEventListener("resize", updateActiveFromScroll);
+  window.addEventListener("hashchange", updateActiveFromScroll);
+}
+
+setupActiveNavigation();
+
 const ideaForm = document.getElementById("idea-form");
 const ideaAnonToggle = document.getElementById("idea-anon");
 const ideaIdentityFields = document.getElementById("idea-identity-fields");
