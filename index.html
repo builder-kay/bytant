@@ -1,740 +1,531 @@
-﻿<!doctype html>
-<html lang="en" class="h-full">
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bytant Innovative Group</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
 </head>
 
-<body class="h-full font-body">
-  <div id="app-wrapper" class="h-full w-full overflow-auto">
+<body>
+  <div class="motion-field" aria-hidden="true">
+    <span class="glyph glyph-one"></span>
+    <span class="glyph glyph-two"></span>
+    <span class="glyph glyph-three"></span>
+    <span class="orbit"></span>
+  </div>
 
-    <!-- Background Layer -->
-    <div class="fixed inset-0 bg-[#0D1117] kente-pattern"></div>
-
-    <!-- Floating African Geometric Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-      <svg class="absolute top-20 left-10 w-32 h-32 animate-float opacity-20" viewbox="0 0 100 100">
-        <polygon points="50,10 90,90 10,90" fill="none" stroke="#FFB347" stroke-width="2" />
-        <polygon points="50,25 75,75 25,75" fill="none" stroke="#DC2626" stroke-width="1.5" />
-      </svg>
-      <svg class="absolute top-40 right-20 w-24 h-24 animate-float-delayed opacity-15" viewbox="0 0 100 100">
-        <circle cx="50" cy="50" r="40" fill="none" stroke="#FFB347" stroke-width="2" />
-        <circle cx="50" cy="50" r="25" fill="none" stroke="#DC2626" stroke-width="1.5" />
-        <circle cx="50" cy="50" r="10" fill="#FFB347" opacity="0.3" />
-      </svg>
-      <svg class="absolute bottom-40 left-20 w-40 h-40 animate-pulse-glow opacity-10" viewbox="0 0 100 100">
-        <rect x="20" y="20" width="60" height="60" fill="none" stroke="#FFB347" stroke-width="2"
-          transform="rotate(45 50 50)" />
-        <rect x="30" y="30" width="40" height="40" fill="none" stroke="#DC2626" stroke-width="1.5"
-          transform="rotate(45 50 50)" />
-      </svg>
-      <svg class="absolute bottom-20 right-40 w-28 h-28 animate-float opacity-15" viewbox="0 0 100 100">
-        <path d="M50 10 L90 50 L50 90 L10 50 Z" fill="none" stroke="#FFB347" stroke-width="2" />
-        <path d="M50 25 L75 50 L50 75 L25 50 Z" fill="none" stroke="#DC2626" stroke-width="1.5" />
-      </svg>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Bytant home">
+      <img src="assets/img/hero logo.png" alt="Bytant Innovative Group logo">
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#mission">Mission</a>
+      <a href="#identity">Identity</a>
+      <a href="#products">Products</a>
+      <a href="#open-source">Open Source</a>
+      <a href="#services">Services</a>
+      <a href="#values">Values</a>
+      <a href="#team">Team</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="ghost-btn" id="help-us-btn" type="button">Buy us coffee</button>
+      <button class="primary-btn" id="nav-cta-btn" type="button">Contact</button>
     </div>
+  </header>
 
-    <!-- Main Content -->
-    <div class="relative z-10 min-h-full flex flex-col">
-
-      <!-- Navigation -->
-      <nav class="w-full px-6 py-4 flex items-center justify-between animate-fade-in">
-        <div class="flex items-center">
-
-          <!-- Logo-->
-          <img src="assets/img/Bytant logo ful.png" alt="Bytant Logo" class="w-20 h-20" />
-        </div>
-        <div class="flex items-center gap-6">
-          <div class="relative ">
-            <button id="help-us-btn"
-              class="border-2 border-[#FFB347] text-[#FFB347] px-5 py-2 rounded-full font-semibold text-sm hover:bg-[#FFB347]/10 transition-all duration-300 hover:scale-105">Help
-              Us</button>
-
-            <!-- Help Us Dropdown Menu -->
-            <div id="help-us-menu"
-              class="hidden absolute top-full left-0 mt-2 w-64 bg-[#1A1F26] border-2 border-[#FFB347]/30 rounded-2xl shadow-2xl shadow-[#FFB347]/20 overflow-hidden z-[9999]">
-              <div class="p-2"><button data-help-action="donate"
-                  class="help-menu-item w-full text-left px-4 py-3 rounded-lg hover:bg-[#FFB347]/10 transition-colors group">
-                  <div class="flex items-center gap-3"><i class="fa-solid fa-heart text-[#FFB347] text-lg"></i>
-                    <div>
-                      <div class="text-white font-semibold text-sm group-hover:text-[#FFB347] transition-colors">
-                        Donate
-                      </div>
-                      <div class="text-gray-500 text-xs">
-                        Support our mission
-                      </div>
-                    </div>
-                  </div>
-                </button> <button data-help-action="idea"
-                  class="help-menu-item w-full text-left px-4 py-3 rounded-lg hover:bg-[#FFB347]/10 transition-colors group">
-                  <div class="flex items-center gap-3"><i class="fa-solid fa-lightbulb text-[#FFB347] text-lg"></i>
-                    <div>
-                      <div class="text-white font-semibold text-sm group-hover:text-[#FFB347] transition-colors">
-                        Share Idea
-                      </div>
-                      <div class="text-gray-500 text-xs">
-                        Contribute your vision
-                      </div>
-                    </div>
-                  </div>
-                </button> <button data-help-action="suggestion"
-                  class="help-menu-item w-full text-left px-4 py-3 rounded-lg hover:bg-[#FFB347]/10 transition-colors group">
-                  <div class="flex items-center gap-3"><i class="fa-solid fa-pen-to-square text-[#FFB347] text-lg"></i>
-                    <div>
-                      <div class="text-white font-semibold text-sm group-hover:text-[#FFB347] transition-colors">
-                        Leave a Suggestion
-                      </div>
-                      <div class="text-gray-500 text-xs">
-                        Help us improve
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              </div>
-
-            </div>
-
-            <button id="nav-cta-btn"
-              class="bg-gradient-to-r from-[#FFB347] to-[#DC2626] text-[#0D1117] px-5 py-2 rounded-full font-semibold text-sm hover:shadow-lg hover:shadow-[#FFB347]/30 transition-all duration-300 hover:scale-105">
-              Contact Us </button>
-          </div>
-        </div>
-      </nav>
-      <!-- Help Us Modal -->
-      <div id="help-modal"
-        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
-        <div
-          class="bg-[#1A1F26] rounded-3xl border-2 border-[#FFB347]/30 shadow-2xl shadow-[#FFB347]/20 max-w-md w-full p-8 relative animate-slide-up">
-          <!-- Close Button --> <button id="close-help-modal"
-            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-            <i class="fa-solid fa-xmark text-xl"></i></button> <!-- Modal Header -->
-          <div class="text-center mb-8">
-            <div
-              class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-              <i class="fa-solid fa-heart text-[#0D1117] text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">How You Can Help</h3>
-            <p class="text-gray-400 text-sm">Choose a way to support our mission</p>
-          </div><!-- Help Options -->
-          <div class="space-y-4"><!-- Donate --> <button data-help-action="donate"
-              class="help-option-btn flex items-center gap-4 p-4 rounded-xl bg-[#0D1117] border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all hover:scale-105 group w-full text-left">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-                <i class="fa-solid fa-heart text-[#0D1117] text-xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="text-white font-semibold text-sm">
-                  Donate
-                </div>
-                <div class="text-gray-400 text-xs">
-                  Support our mission financially
-                </div>
-              </div>
-              <i class="fa-solid fa-chevron-right text-lg text-gray-400 group-hover:text-[#FFB347] transition-colors"></i>
-            </button> <!-- Share Idea --> <button data-help-action="idea"
-              class="help-option-btn flex items-center gap-4 p-4 rounded-xl bg-[#0D1117] border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all hover:scale-105 group w-full text-left">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-                <i class="fa-solid fa-lightbulb text-[#0D1117] text-xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="text-white font-semibold text-sm">
-                  Share an Idea
-                </div>
-                <div class="text-gray-400 text-xs">
-                  Contribute your vision
-                </div>
-              </div>
-              <i class="fa-solid fa-chevron-right text-lg text-gray-400 group-hover:text-[#FFB347] transition-colors"></i>
-            </button> <!-- Suggestion --> <button data-help-action="suggestion"
-              class="help-option-btn flex items-center gap-4 p-4 rounded-xl bg-[#0D1117] border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all hover:scale-105 group w-full text-left">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-                <i class="fa-solid fa-pen-to-square text-[#0D1117] text-xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="text-white font-semibold text-sm">
-                  Leave a Suggestion
-                </div>
-                <div class="text-gray-400 text-xs">
-                  Help us improve
-                </div>
-              </div>
-              <i class="fa-solid fa-chevron-right text-lg text-gray-400 group-hover:text-[#FFB347] transition-colors"></i>
-            </button>
-          </div>
+  <main id="home">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">African startup studio for bold builders</p>
+        <h1>Bytant Innovative Group</h1>
+        <p class="hero-lede">Innovating to Inspire. We build digital infrastructure, platforms, and technologies that solve meaningful African problems while meeting world-class engineering standards.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#mission">Explore the mission</a>
+          <a class="ghost-btn" href="#products">View innovations</a>
         </div>
       </div>
-      <!-- Donate Modal -->
-      <div id="donate-modal"
-        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
-        <div
-          class="bg-[#1A1F26] rounded-3xl border-2 border-[#FFB347]/30 shadow-2xl shadow-[#FFB347]/20 max-w-md w-full p-8 relative animate-slide-up">
-          <button id="close-donate-modal"
-            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-            <i class="fa-solid fa-xmark text-xl"></i>
+
+      <div class="hero-stage reveal" aria-label="Animated Bytant technology motif">
+        <div class="logo-disc">
+          <img src="assets/img/bytant IG.png" alt="Bytant Innovative Group logo">
+        </div>
+        <div class="pulse-ring ring-one"></div>
+        <div class="pulse-ring ring-two"></div>
+        <div class="data-card card-top">
+          <span>North Star</span>
+          <strong>Impact</strong>
+        </div>
+        <div class="data-card card-bottom">
+          <span>Team Bytant</span>
+          <strong>Build</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="section split-section">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Vision and mission</p>
+        <h2>Building Africa's most trusted and inspiring technology company.</h2>
+        <p>Our vision is to build digital infrastructure that empowers millions. Our mission is to design, build, and scale innovative technology through engineering excellence, research, collaboration, and responsible innovation.</p>
+      </div>
+      <div class="value-grid reveal">
+        <article>
+          <i class="fa-solid fa-compass"></i>
+          <h3>North Star</h3>
+          <p>Every project should make Africa better, create lasting value, scale responsibly, and improve people's lives.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-earth-africa"></i>
+          <h3>Africa first</h3>
+          <p>We build for African realities with global quality, accessibility, security, and human-centered design.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-microchip"></i>
+          <h3>Infrastructure</h3>
+          <p>We focus on platforms and technologies that can become lasting digital systems, not temporary projects.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Responsible innovation</h3>
+          <p>We protect trust, privacy, intellectual property, and the long-term reputation of Bytant.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="identity" class="section identity-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Official identity</p>
+        <h2>One company. One innovation team. Many products.</h2>
+      </div>
+      <div class="identity-grid">
+        <article class="identity-card reveal">
+          <span>Company</span>
+          <h3>Bytant Innovative Group</h3>
+          <p>The parent organization and long-term institution behind the brand, governance, products, and technology direction.</p>
+        </article>
+        <article class="identity-card reveal">
+          <span>Innovation team</span>
+          <h3>Team Bytant</h3>
+          <p>The engineering, innovation, and research team that builds, tests, documents, and ships Bytant products.</p>
+        </article>
+        <article class="identity-card reveal">
+          <span>Product attribution</span>
+          <h3>From Team Bytant</h3>
+          <p>Products are released under their own names with attribution when appropriate, such as Crib from Team Bytant.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Products</p>
+        <h2>Digital products shaped by African problems and global standards.</h2>
+      </div>
+      <div class="product-carousel reveal" aria-label="Bytant products carousel">
+        <div class="carousel-shell">
+          <button class="carousel-control" id="product-prev" type="button" aria-label="Previous product">
+            <i class="fa-solid fa-chevron-left"></i>
           </button>
-          <div class="text-center mb-6">
-            <div
-              class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-              <i class="fa-solid fa-hand-holding-heart text-[#0D1117] text-2xl"></i>
+          <div class="product-viewport">
+            <div class="product-track" id="product-track">
+              <article class="product-card">
+                <a class="product-shot" href="https://govflowgh.vercel.app/" target="_blank" rel="noopener">
+                  <img src="assets/img/products/govflow.png" alt="Screenshot of the GovFlow homepage">
+                </a>
+                <div class="product-copy">
+                  <span>Government services</span>
+                  <h3>GovFlow</h3>
+                  <p>A Ghana-focused government service copilot that helps people move from confusion to completion with roadmaps, checklists, and guidance.</p>
+                  <a href="https://govflowgh.vercel.app/" target="_blank" rel="noopener">Visit homepage <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+              </article>
+              <article class="product-card">
+                <a class="product-shot" href="https://apomudentriage.help/" target="_blank" rel="noopener">
+                  <img src="assets/img/products/apomuden-triage.png" alt="Screenshot of the Apomuden Triage homepage">
+                </a>
+                <div class="product-copy">
+                  <span>Health guidance</span>
+                  <h3>Apomuden Triage</h3>
+                  <p>An AI health guidance experience for Ghana and West Africa, built for symptom urgency checks, local care navigation, and practical next steps.</p>
+                  <a href="https://apomudentriage.help/" target="_blank" rel="noopener">Visit homepage <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+              </article>
+              <article class="product-card">
+                <a class="product-shot" href="https://cribafrica.space/" target="_blank" rel="noopener">
+                  <img src="assets/img/products/crib-africa.png" alt="Screenshot of the Crib Africa homepage">
+                </a>
+                <div class="product-copy">
+                  <span>Creative marketplace</span>
+                  <h3>Crib Africa</h3>
+                  <p>A marketplace for editable creative assets from local creators, helping buyers discover templates, source files, kits, and production resources.</p>
+                  <a href="https://cribafrica.space/" target="_blank" rel="noopener">Visit homepage <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+              </article>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Donate via Mobile Money</h3>
-            <p class="text-gray-400 text-sm">Use the details below to support our mission.</p>
           </div>
-          <div class="space-y-3">
-            <div class="bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3">
-              <p class="text-xs uppercase tracking-wide text-gray-500">MoMo Number</p>
-              <p class="text-white font-semibold text-lg">(233) 504 378 971</p>
-            </div>
-            <div class="bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3">
-              <p class="text-xs uppercase tracking-wide text-gray-500">Account Name</p>
-              <p class="text-white font-semibold text-lg">KELVIN OMABOE</p>
-            </div>
-            <div class="bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3">
-              <p class="text-xs uppercase tracking-wide text-gray-500">Network</p>
-              <p class="text-white font-semibold text-lg">VODAFONE</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Share Idea Modal -->
-      <div id="idea-modal"
-        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
-        <div
-          class="bg-[#1A1F26] rounded-3xl border-2 border-[#FFB347]/30 shadow-2xl shadow-[#FFB347]/20 max-w-lg w-full p-8 relative animate-slide-up">
-          <button id="close-idea-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-            <i class="fa-solid fa-xmark text-xl"></i>
+          <button class="carousel-control" id="product-next" type="button" aria-label="Next product">
+            <i class="fa-solid fa-chevron-right"></i>
           </button>
-          <div class="text-center mb-6">
-            <div
-              class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-              <i class="fa-solid fa-lightbulb text-[#0D1117] text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Share an Idea</h3>
-            <p class="text-gray-400 text-sm">Tell us about the innovation you want to see built.</p>
-          </div>
-          <form id="idea-form" class="space-y-4">
-            <div id="idea-identity-fields" class="space-y-4">
-              <div>
-                <label class="text-xs text-gray-400 uppercase tracking-wide">Full Name</label>
-                <input type="text" name="name" autocomplete="name"
-                  class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                  placeholder="Your name" />
-              </div>
-              <div>
-                <label class="text-xs text-gray-400 uppercase tracking-wide">Email</label>
-                <input type="email" name="email" autocomplete="email"
-                  class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                  placeholder="you@email.com" />
-              </div>
-            </div>
-            <div
-              class="flex items-start gap-3 bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-left">
-              <input id="idea-anon" type="checkbox"
-                class="mt-1 h-4 w-4 rounded border-[#FFB347]/40 bg-transparent text-[#FFB347] focus:ring-[#FFB347]/40" />
-              <div>
-                <label for="idea-anon" class="text-sm text-white font-semibold">Submit anonymously</label>
-                <p class="text-xs text-gray-500">We will not include your name or email in the WhatsApp message.</p>
-              </div>
-            </div>
-            <div>
-              <label class="text-xs text-gray-400 uppercase tracking-wide">Idea Title</label>
-              <input type="text" name="idea_title" required
-                class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                placeholder="Short, descriptive title" />
-            </div>
-            <div>
-              <label class="text-xs text-gray-400 uppercase tracking-wide">Your Idea</label>
-              <textarea name="idea_details" rows="4" required
-                class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                placeholder="Describe the problem and your proposed solution"></textarea>
-            </div>
-            <button type="submit"
-              class="w-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] text-[#0D1117] py-3 rounded-full font-semibold text-sm hover:shadow-lg hover:shadow-[#FFB347]/30 transition-all duration-300 hover:scale-105">
-              Send Idea
-            </button>
-          </form>
         </div>
+        <div class="product-dots" id="product-dots" aria-label="Product carousel pagination"></div>
       </div>
-      <!-- Suggestion Modal -->
-      <div id="suggestion-modal"
-        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
-        <div
-          class="bg-[#1A1F26] rounded-3xl border-2 border-[#FFB347]/30 shadow-2xl shadow-[#FFB347]/20 max-w-lg w-full p-8 relative animate-slide-up">
-          <button id="close-suggestion-modal"
-            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-            <i class="fa-solid fa-xmark text-xl"></i>
+    </section>
+
+    <section id="open-source" class="section open-source-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Open source</p>
+        <h2>Knowledge should move further than one team.</h2>
+        <a class="ghost-btn section-cta" href="https://www.github.com/bytant innovative group" target="_blank" rel="noopener">
+          <i class="fa-brands fa-github"></i>
+          View GitHub
+        </a>
+      </div>
+      <div class="identity-grid">
+        <article class="identity-card reveal">
+          <span>Shared tools</span>
+          <h3>Reusable building blocks</h3>
+          <p>When it helps the wider builder community, Team Bytant can release tools, templates, and technical foundations for others to learn from or build on.</p>
+        </article>
+        <article class="identity-card reveal">
+          <span>Public learning</span>
+          <h3>Documented experiments</h3>
+          <p>We value clear documentation, responsible sharing, and practical lessons that help young African technologists improve faster.</p>
+        </article>
+        <article class="identity-card reveal">
+          <span>Responsible release</span>
+          <h3>Open with care</h3>
+          <p>Open source work must still protect users, privacy, intellectual property, security, and the reputation of Bytant.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="section services-section">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Services</p>
+        <h2>We design and build digital products for teams that need serious execution.</h2>
+        <p>Beyond our own products, Bytant helps founders, organizations, and communities design, prototype, and build websites, apps, platforms, and technical systems with the same engineering excellence and responsible innovation that guide Team Bytant.</p>
+        <div class="services-actions">
+          <a class="primary-btn section-cta" href="https://wa.me/233507410361?text=Hello%20Bytant%2C%20I%27d%20like%20to%20talk%20about%20your%20services." target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            Talk to us
+          </a>
+          <button class="ghost-btn section-cta" id="view-services-btn" type="button">
+            <i class="fa-solid fa-list-check"></i>
+            View all services
           </button>
-          <div class="text-center mb-6">
-            <div
-              class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-              <i class="fa-solid fa-pen-to-square text-[#0D1117] text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Leave a Suggestion</h3>
-            <p class="text-gray-400 text-sm">Help us improve the Bytant experience.</p>
-          </div>
-          <form id="suggestion-form" class="space-y-4">
-            <div id="suggestion-identity-fields" class="space-y-4">
-              <div>
-                <label class="text-xs text-gray-400 uppercase tracking-wide">Full Name</label>
-                <input type="text" name="name" autocomplete="name"
-                  class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                  placeholder="Your name (optional)" />
-              </div>
-              <div>
-                <label class="text-xs text-gray-400 uppercase tracking-wide">Email</label>
-                <input type="email" name="email" autocomplete="email"
-                  class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                  placeholder="you@email.com (optional)" />
-              </div>
-            </div>
-            <div
-              class="flex items-start gap-3 bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-left">
-              <input id="suggestion-anon" type="checkbox"
-                class="mt-1 h-4 w-4 rounded border-[#FFB347]/40 bg-transparent text-[#FFB347] focus:ring-[#FFB347]/40" />
-              <div>
-                <label for="suggestion-anon" class="text-sm text-white font-semibold">Submit anonymously</label>
-                <p class="text-xs text-gray-500">We will not include your name or email in the WhatsApp message.</p>
-              </div>
-            </div>
-            <div>
-              <label class="text-xs text-gray-400 uppercase tracking-wide">Suggestion</label>
-              <textarea name="suggestion" rows="4" required
-                class="mt-2 w-full bg-[#0D1117] border border-[#FFB347]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFB347]/40"
-                placeholder="Share your suggestion or feedback"></textarea>
-            </div>
-            <button type="submit"
-              class="w-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] text-[#0D1117] py-3 rounded-full font-semibold text-sm hover:shadow-lg hover:shadow-[#FFB347]/30 transition-all duration-300 hover:scale-105">
-              Send Suggestion
-            </button>
-          </form>
         </div>
       </div>
-      <!-- Contact Us Modal -->
-      <div id="contact-modal"
-        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
-        <div
-          class="bg-[#1A1F26] rounded-3xl border-2 border-[#FFB347]/30 shadow-2xl shadow-[#FFB347]/20 max-w-md w-full p-8 relative animate-slide-up">
-          <!-- Close Button --> <button id="close-contact-modal"
-            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-            <i class="fa-solid fa-xmark text-xl"></i></button> <!-- Modal Header -->
-          <div class="text-center mb-8">
-            <div
-              class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] flex items-center justify-center">
-              <i class="fa-solid fa-envelope text-[#0D1117] text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Get In Touch</h3>
-            <p class="text-gray-400 text-sm">We'd love to hear from you!</p>
-          </div><!-- Contact Options -->
-          <div class="space-y-4"><!-- WhatsApp --> <a href="https://wa.me/233504378971" target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-4 p-4 rounded-xl bg-[#0D1117] border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all hover:scale-105 group">
-              <div
-                class="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center group-hover:bg-[#25D366]/30 transition-colors">
-                <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="text-white font-semibold text-sm">
-                  WhatsApp
-                </div>
-                <div class="text-gray-400 text-xs">
-                  0504378971
-                </div>
-              </div>
-              <i class="fa-solid fa-chevron-right text-lg text-gray-400 group-hover:text-[#FFB347] transition-colors"></i>
-            </a> <!-- Email --> <a href="mailto:bytantinnovativegroup@gmail.com"
-              class="flex items-center gap-4 p-4 rounded-xl bg-[#0D1117] border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all hover:scale-105 group">
-              <div
-                class="w-12 h-12 rounded-full bg-[#FFB347]/20 flex items-center justify-center group-hover:bg-[#FFB347]/30 transition-colors">
-                <i class="fa-solid fa-envelope text-[#FFB347] text-xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="text-white font-semibold text-sm">
-                  Email
-                </div>
-                <div class="text-gray-400 text-xs">
-                  bytantinnovativegroup@gmail.com
-                </div>
-              </div>
-              <i class="fa-solid fa-chevron-right text-lg text-gray-400 group-hover:text-[#FFB347] transition-colors"></i>
-            </a> <!-- LinkedIn --> <a href="https://linkedin.com/company/bytant-innovative-group" target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-4 p-4 rounded-xl bg-[#0D1117] border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all hover:scale-105 group">
-              <div
-                class="w-12 h-12 rounded-full bg-[#0A66C2]/20 flex items-center justify-center group-hover:bg-[#0A66C2]/30 transition-colors">
-                <i class="fa-brands fa-linkedin-in text-[#0A66C2] text-xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="text-white font-semibold text-sm">
-                  LinkedIn
-                </div>
-                <div class="text-gray-400 text-xs">
-                  bytant-innovative-group
-                </div>
-              </div>
-              <i class="fa-solid fa-chevron-right text-lg text-gray-400 group-hover:text-[#FFB347] transition-colors"></i>
-            </a>
-          </div>
+      <div class="value-grid reveal">
+        <article>
+          <i class="fa-solid fa-pen-ruler"></i>
+          <h3>Product design</h3>
+          <p>Interface design, product strategy, user flows, and brand-aligned digital experiences.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-code"></i>
+          <h3>Custom builds</h3>
+          <p>Websites, apps, platforms, prototypes, and technical systems for high-fit projects.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-gem"></i>
+          <h3>Quality delivery</h3>
+          <p>Focused, well-built, and designed to last beyond launch day.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Mission fit</h3>
+          <p>We prefer projects that create value, improve lives, and align with responsible innovation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="values" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Core values</p>
+        <h2>The standards that guide daily decisions.</h2>
+      </div>
+      <div class="values-cloud reveal" aria-label="Bytant core values">
+        <span>Build First</span>
+        <span>Learn Relentlessly</span>
+        <span>Radical Ownership</span>
+        <span>Team Above Ego</span>
+        <span>Excellence by Default</span>
+        <span>Integrity Always</span>
+        <span>User First</span>
+        <span>Continuous Improvement</span>
+      </div>
+      <div class="venture-grid compact-grid">
+        <article class="venture-card reveal">
+          <span class="card-number">01</span>
+          <i class="fa-solid fa-book-open-reader"></i>
+          <h3>Research before building</h3>
+          <p>We think long term, study the problem deeply, and solve root causes rather than symptoms.</p>
+        </article>
+        <article class="venture-card reveal">
+          <span class="card-number">02</span>
+          <i class="fa-solid fa-layer-group"></i>
+          <h3>Simple, lasting systems</h3>
+          <p>We keep solutions simple, document our work, and leave every project better than we found it.</p>
+        </article>
+        <article class="venture-card reveal">
+          <span class="card-number">03</span>
+          <i class="fa-solid fa-handshake-angle"></i>
+          <h3>Trust as an asset</h3>
+          <p>We earn trust through integrity, clear communication, accountability, and responsible engineering.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="culture" class="section culture-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Culture and leadership</p>
+        <h2>How Team Bytant works when nobody is watching.</h2>
+      </div>
+      <div class="culture-columns">
+        <article class="culture-card reveal">
+          <h3>Culture</h3>
+          <ul>
+            <li>Debate ideas respectfully.</li>
+            <li>Document the work.</li>
+            <li>Finish what we start.</li>
+            <li>Help teammates succeed.</li>
+            <li>Celebrate learning.</li>
+            <li>Protect Bytant's reputation.</li>
+          </ul>
+        </article>
+        <article class="culture-card reveal">
+          <h3>Leadership</h3>
+          <ul>
+            <li>Serve before commanding.</li>
+            <li>Build people and earn trust.</li>
+            <li>Communicate clearly.</li>
+            <li>Make data-informed decisions.</li>
+            <li>Encourage innovation.</li>
+            <li>Stay humble and accountable.</li>
+          </ul>
+        </article>
+        <article class="culture-card reveal">
+          <h3>Membership</h3>
+          <ul>
+            <li>Earned through competence.</li>
+            <li>Proven by character.</li>
+            <li>Sustained by commitment.</li>
+            <li>Requires consistent contribution.</li>
+            <li>Requires professional communication.</li>
+            <li>Requires confidentiality.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="method" class="section method-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Operating system</p>
+        <h2>The Bytant way of building.</h2>
+      </div>
+      <div class="timeline reveal">
+        <div>
+          <span>Purpose</span>
+          <p>Serve people through technology and build solutions that positively shape Africa's future.</p>
+        </div>
+        <div>
+          <span>Governance</span>
+          <p>Strategic direction is led by the Founder and future Executive Council, with operations delegated to Team Leads.</p>
+        </div>
+        <div>
+          <span>Ethics</span>
+          <p>Members uphold honesty, confidentiality, privacy, intellectual property, and responsible innovation.</p>
+        </div>
+        <div>
+          <span>Impact</span>
+          <p>Success is measured by lasting impact, not trends, noise, or short-term attention.</p>
         </div>
       </div>
+    </section>
 
+    <section class="section doctrine-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Constitutional doctrines</p>
+        <h2>Principles built for generations.</h2>
+      </div>
+      <div class="doctrine-list reveal">
+        <p>We build for generations, not trends.</p>
+        <p>We solve root causes rather than symptoms.</p>
+        <p>Trust is our greatest asset.</p>
+        <p>Every member is a leader through action.</p>
+        <p>Technology should remain accessible, secure, and human-centered.</p>
+        <p>Success is measured by lasting impact.</p>
+      </div>
+    </section>
 
-      <!-- Hero Section -->
-      <section class="flex-1 flex flex-col items-center justify-center px-6 py-10 text-center">
-        <div class="max-w-4xl mx-auto"><!-- Decorative Element Above Title -->
-          <div class="animate-slide-up mb-6">
-            <svg class="w-20 h-8 mx-auto" viewbox="0 0 80 30">
-              <line x1="0" y1="15" x2="25" y2="15" stroke="#FFB347" stroke-width="2" />
-              <circle cx="40" cy="15" r="5" fill="#DC2626" />
-              <line x1="55" y1="15" x2="80" y2="15" stroke="#FFB347" stroke-width="2" />
-            </svg>
-          </div><!-- Main Title -->
-          <h1 id="hero-title"
-            class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 animate-slide-up leading-tight">
-            Bytant<br><span class="gradient-text">Innovative Group</span></h1><!-- Slogan -->
-          <p id="hero-slogan"
-            class="text-xl sm:text-2xl md:text-3xl text-[#FFB347] font-display italic mb-8 animate-slide-up-delayed">"We
-            Innovate to Inspire"</p><!-- Description -->
-          <p id="hero-description"
-            class="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-12 animate-slide-up-delayed-2 leading-relaxed">
-            Empowering young Africans to rise, build, and shape the future of our continent through technology and
-            innovation.</p><!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in"><a
-              href="https://chat.whatsapp.com/DVWNz5WeXfQBDNVragWCqD" target="_blank" rel="noopener noreferrer"
-              id="cta-primary-btn"
-              class="group relative bg-gradient-to-r from-[#FFB347] to-[#DC2626] text-[#0D1117] px-10 py-4 rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB347]/40 hover:scale-105 inline-block">
-              <span class="relative z-10" id="cta-button-text">Join Us Build</span>
-              <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
-            </a> <a href="innovations.html"
-              class="border-2 border-[#FFB347] text-[#FFB347] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#FFB347]/10 transition-all duration-300 hover:scale-105 inline-block text-center">
-              View Innovations </a>
-          </div>
-        </div><!-- Scroll Indicator -->
-        <div class="mt-16 animate-bounce">
-          <i class="fa-solid fa-arrow-down text-[#FFB347] text-2xl opacity-60"></i>
+    <section id="team" class="section team-section">
+      <div class="team-logo reveal">
+        <img src="assets/img/team bytant.png" alt="Team Bytant logo">
+      </div>
+      <div class="section-copy reveal">
+        <p class="eyebrow">Team Bytant</p>
+        <h2>The engineering, innovation, and research force inside Bytant.</h2>
+        <p>Team Bytant exists to turn ideas into products with excellence, integrity, collaboration, and responsible innovation. Every member pledges to respect teammates, protect Bytant's integrity, and build technology that serves humanity with lasting impact.</p>
+        <div class="stats-row">
+          <span><strong>BOS</strong> Bytant Operating System</span>
+          <span><strong>1.0</strong> foundational framework</span>
+          <span><strong>2026</strong> constitution</span>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="assets/img/team bytant.png" alt="Team Bytant logo">
+      <div>
+        <strong>From Team Bytant</strong>
+        <p>Innovating to Inspire. Building for generations, not trends.</p>
+        <p class="copyright">Copyright 2026 Bytant Innovative Group.</p>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://www.x.com/bytant innovative group" aria-label="Bytant on X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.github.com/bytant innovative group" aria-label="Bytant on GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/bytant-innovative-group" aria-label="Bytant on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </footer>
 
-      <!-- Mission Section -->
-      <section id="mission" class="px-6 py-20 adinkra-bg">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid md:grid-cols-2 gap-12 items-center"><!-- African Pattern SVG -->
-            <div class="relative order-2 md:order-1">
-              <img src="assets/img/Bytant logo.png" alt="African Pattern"
-                class="w-full h-auto rounded-2xl border-4 border-[#FFB347]/20 shadow-2xl shadow-[#FFB347]/10 animate-float-slow" />
-            </div><!-- Mission Content -->
-            <div class="order-1 md:order-2">
-              <h2 id="mission-title" class="font-display text-4xl sm:text-5xl font-bold text-white mb-6">Our <span
-                  class="gradient-text">Mission</span></h2>
-              <p id="mission-text" class="text-gray-400 text-lg leading-relaxed mb-8">To ignite innovation across Africa
-                by nurturing the next generation of tech leaders. We believe in the boundless potential of African youth
-                to create solutions that will transform our communities and inspire the world.</p><!-- Values -->
-              <div class="grid grid-cols-2 gap-4">
-                <div
-                  class="bg-[#1A1F26] p-4 rounded-xl border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-colors">
-                  <div class="text-[#FFB347] text-2xl mb-2">
-                    <i class="fa-solid fa-earth-africa"></i>
-                  </div>
-                  <h3 class="text-white font-bold mb-1">Pan-African</h3>
-                  <p class="text-gray-500 text-sm">United across borders</p>
-                </div>
-                <div
-                  class="bg-[#1A1F26] p-4 rounded-xl border border-[#DC2626]/20 hover:border-[#DC2626]/50 transition-colors">
-                  <div class="text-[#DC2626] text-2xl mb-2">
-                    <i class="fa-solid fa-lightbulb"></i>
-                  </div>
-                  <h3 class="text-white font-bold mb-1">Innovative</h3>
-                  <p class="text-gray-500 text-sm">Creating tomorrow</p>
-                </div>
-                <div
-                  class="bg-[#1A1F26] p-4 rounded-xl border border-[#DC2626]/20 hover:border-[#DC2626]/50 transition-colors">
-                  <div class="text-[#DC2626] text-2xl mb-2">
-                    <i class="fa-solid fa-people-group"></i>
-                  </div>
-                  <h3 class="text-white font-bold mb-1">Community</h3>
-                  <p class="text-gray-500 text-sm">Growing together</p>
-                </div>
-                <div
-                  class="bg-[#1A1F26] p-4 rounded-xl border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-colors">
-                  <div class="text-[#FFB347] text-2xl mb-2">
-                    <i class="fa-solid fa-rocket"></i>
-                  </div>
-                  <h3 class="text-white font-bold mb-1">Ambitious</h3>
-                  <p class="text-gray-500 text-sm">Reaching higher</p>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
-
-
-      <!-- Stats Section -->
-      <section class="px-6 py-16 bg-gradient-to-r from-[#FFB347]/10 via-transparent to-[#DC2626]/10">
-        <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div class="text-4xl md:text-5xl font-black gradient-text mb-2">
-              20+
-            </div>
-            <p class="text-gray-400 text-sm">Projects Launched</p>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-black gradient-text mb-2">
-              10+
-            </div>
-            <p class="text-gray-400 text-sm">Young Founders & Builders</p>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-black gradient-text mb-2">
-              3
-            </div>
-            <p class="text-gray-400 text-sm">African Countries</p>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-black gradient-text mb-2">
-              <i class="fa-solid fa-infinity"></i>
-            </div>
-            <p class="text-gray-400 text-sm">Possibilities</p>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- Meet The Core Team Section -->
-      <section id="team" class="px-6 py-20">
-        <div class="max-w-6xl mx-auto"><!-- Section Header -->
-          <div class="text-center mb-16">
-            <h2 id="team-title" class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Meet The <span
-                class="gradient-text">Emerging Founders</span></h2>
-            <p id="team-subtitle" class="text-gray-400 text-lg max-w-2xl mx-auto">Passionate innovators dedicated to
-              building Africa's tech future</p>
-          </div>
-          <!-- Team Carousel -->
-          <div class="relative">
-            <!-- Carousel Container -->
-            <div class="overflow-hidden">
-              <div id="team-carousel" class="flex transition-transform duration-500 ease-out">
-
-                <!-- Team Member 1 -->
-                <div class="w-full flex-shrink-0 px-4">
-                  <div class="max-w-sm mx-auto group relative">
-                    <div
-                      class="bg-[#1A1F26] rounded-2xl p-8 border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB347]/20">
-                      <!-- Avatar with African pattern -->
-                      <div class="relative mb-6">
-                        <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#FFB347] to-[#DC2626] p-1">
-                          <div class="w-full h-full rounded-full bg-[#1A1F26] flex items-center justify-center">
-                            <svg class="w-24 h-24" viewbox="0 0 100 100">
-                              <circle cx="50" cy="35" r="15" fill="#FFB347" />
-                              <path d="M25 70 Q25 50 50 50 Q75 50 75 70 L75 85 Q75 90 70 90 L30 90 Q25 90 25 85 Z"
-                                fill="#FFB347" />
-                            </svg>
-                          </div>
-                        </div><!-- Decorative element -->
-                        <div class="absolute -top-2 -right-2 w-10 h-10">
-                          <svg viewbox="0 0 40 40">
-                            <polygon points="20,5 35,35 5,35" fill="#DC2626" opacity="0.6" />
-                          </svg>
-                        </div>
-                      </div>
-                      <div class="text-center">
-                        <h3 class="text-white font-bold text-2xl mb-2">Kelvin Omaboe</h3>
-                        <p class="text-[#FFB347] text-base mb-4">Innovations Lead</p>
-                        <p class="text-gray-500 text-base leading-relaxed mb-6">Visionary leader passionate about empowering African youth through technology</p>
-                        <!-- LinkedIn & Portfolio Links -->
-                        <div class="flex flex-col gap-3"><a
-                            href="https://linkedin.com/in/kelvin-omaboe" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#0A66C2] hover:text-[#FFB347] transition-colors group/link">
-                            <i class="fa-brands fa-linkedin-in text-lg"></i><span class="text-sm font-medium">Connect on LinkedIn</span> </a> <a
-                            href="https://kelvin-omaboe.vercel.app" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#FFB347] hover:text-[#DC2626] transition-colors group/link">
-                            <i class="fa-solid fa-briefcase text-lg"></i><span class="text-sm font-medium">View Portfolio</span> </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Team Member 2 -->
-                <div class="w-full flex-shrink-0 px-4">
-                  <div class="max-w-sm mx-auto group relative">
-                    <div
-                      class="bg-[#1A1F26] rounded-2xl p-8 border border-[#DC2626]/20 hover:border-[#DC2626]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#DC2626]/20">
-                      <div class="relative mb-6">
-                        <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#DC2626] to-[#FFB347] p-1">
-                          <div class="w-full h-full rounded-full bg-[#1A1F26] flex items-center justify-center">
-                            <svg class="w-24 h-24" viewbox="0 0 100 100">
-                              <circle cx="50" cy="35" r="15" fill="#DC2626" />
-                              <path d="M25 70 Q25 50 50 50 Q75 50 75 70 L75 85 Q75 90 70 90 L30 90 Q25 90 25 85 Z"
-                                fill="#DC2626" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="absolute -top-2 -right-2 w-10 h-10">
-                          <svg viewbox="0 0 40 40">
-                            <circle cx="20" cy="20" r="10" fill="#FFB347" opacity="0.6" />
-                          </svg>
-                        </div>
-                      </div>
-                      <div class="text-center">
-                        <h3 class="text-white font-bold text-2xl mb-2">Henrietta Kumi</h3>
-                        <p class="text-[#DC2626] text-base mb-4">Loading</p>
-                        <p class="text-gray-500 text-base leading-relaxed mb-6">Loading</p>
-                        <div class="flex flex-col gap-3"><a
-                            href="https://linkedin.com/in/henrietta-kumi" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#0A66C2] hover:text-[#FFB347] transition-colors group/link">
-                            <i class="fa-brands fa-linkedin-in text-lg"></i><span class="text-sm font-medium">Connect on LinkedIn</span> </a> <a
-                            href="#" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#FFB347] hover:text-[#DC2626] transition-colors group/link">
-                            <i class="fa-solid fa-briefcase text-lg"></i><span class="text-sm font-medium">View Portfolio</span> </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="w-full flex-shrink-0 px-4">
-                  <div class="max-w-sm mx-auto group relative">
-                    <div
-                      class="bg-[#1A1F26] rounded-2xl p-8 border border-[#FFB347]/20 hover:border-[#FFB347]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB347]/20">
-                      <div class="relative mb-6">
-                        <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#FFB347] to-[#DC2626] p-1">
-                          <div class="w-full h-full rounded-full bg-[#1A1F26] flex items-center justify-center">
-                            <svg class="w-24 h-24" viewbox="0 0 100 100">
-                              <circle cx="50" cy="35" r="15" fill="#FFB347" />
-                              <path d="M25 70 Q25 50 50 50 Q75 50 75 70 L75 85 Q75 90 70 90 L30 90 Q25 90 25 85 Z"
-                                fill="#FFB347" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="absolute -top-2 -right-2 w-10 h-10">
-                          <svg viewbox="0 0 40 40">
-                            <rect x="10" y="10" width="20" height="20" fill="#DC2626" opacity="0.6"
-                              transform="rotate(45 20 20)" />
-                          </svg>
-                        </div>
-                      </div>
-                      <div class="text-center">
-                        <h3 class="text-white font-bold text-2xl mb-2">Godwin Datsomor</h3>
-                        <p class="text-[#FFB347] text-base mb-4">Loading</p>
-                        <p class="text-gray-500 text-base leading-relaxed mb-6">Driving creative solutions and fostering innovation across the continent</p>
-                        <div class="flex flex-col gap-3"><a
-                            href="https://linkedin.com/in/godwin-datsomor" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#0A66C2] hover:text-[#FFB347] transition-colors group/link">
-                            <i class="fa-brands fa-linkedin-in text-lg"></i><span class="text-sm font-medium">Connect on LinkedIn</span> </a> <a
-                            href="#" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#FFB347] hover:text-[#DC2626] transition-colors group/link">
-                            <i class="fa-solid fa-briefcase text-lg"></i><span class="text-sm font-medium">View Portfolio</span> </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div><!-- Team Member 4 -->
-                <div class="w-full flex-shrink-0 px-4">
-                  <div class="max-w-sm mx-auto group relative">
-                    <div
-                      class="bg-[#1A1F26] rounded-2xl p-8 border border-[#DC2626]/20 hover:border-[#DC2626]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#DC2626]/20">
-                      <div class="relative mb-6">
-                        <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#DC2626] to-[#FFB347] p-1">
-                          <div class="w-full h-full rounded-full bg-[#1A1F26] flex items-center justify-center">
-                            <svg class="w-24 h-24" viewbox="0 0 100 100">
-                              <circle cx="50" cy="35" r="15" fill="#DC2626" />
-                              <path d="M25 70 Q25 50 50 50 Q75 50 75 70 L75 85 Q75 90 70 90 L30 90 Q25 90 25 85 Z"
-                                fill="#DC2626" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="absolute -top-2 -right-2 w-10 h-10">
-                          <svg viewbox="0 0 40 40">
-                            <path d="M20 5 L30 35 L10 35 Z" fill="#FFB347" opacity="0.6" />
-                          </svg>
-                        </div>
-                      </div>
-                      <div class="text-center">
-                        <h3 id="team-member-4-name" class="text-white font-bold text-2xl mb-2">Chidi Nkrumah</h3>
-                        <p id="team-member-4-role" class="text-[#DC2626] text-base mb-4">Community Lead</p>
-                        <p id="team-member-4-bio" class="text-gray-500 text-base leading-relaxed mb-6">Building bridges
-                          and nurturing the next generation of African innovators</p>
-                        <div class="flex flex-col gap-3"><a id="team-member-4-linkedin"
-                            href="https://linkedin.com/in/chidi-nkrumah" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#0A66C2] hover:text-[#FFB347] transition-colors group/link">
-                            <i class="fa-brands fa-linkedin-in text-lg"></i><span class="text-sm font-medium">Connect on LinkedIn</span> </a> <a
-                            id="team-member-4-portfolio" href="https://chidi-portfolio.com" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[#FFB347] hover:text-[#DC2626] transition-colors group/link">
-                            <i class="fa-solid fa-briefcase text-lg"></i><span class="text-sm font-medium">View Portfolio</span> </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Navigation Buttons -->
-              <button id="prev-btn"
-                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] text-[#0D1117] flex items-center justify-center hover:shadow-lg hover:shadow-[#FFB347]/50 transition-all hover:scale-110 z-10">
-                <i class="fa-solid fa-chevron-left text-xl"></i>
-              </button>
-              <button id="next-btn"
-                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full bg-gradient-to-r from-[#FFB347] to-[#DC2626] text-[#0D1117] flex items-center justify-center hover:shadow-lg hover:shadow-[#FFB347]/50 transition-all hover:scale-110 z-10">
-                <i class="fa-solid fa-chevron-right text-xl"></i>
-              </button>
-              <!-- Dots Indicator -->
-              <div class="flex justify-center gap-2 mt-8">
-                <button class="carousel-dot w-3 h-3 rounded-full bg-[#FFB347] transition-all" data-index="0"></button>
-                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-600 transition-all" data-index="1"></button>
-                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-600 transition-all" data-index="2"></button>
-                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-600 transition-all" data-index="3"></button>
-              </div>
-
-            </div>
-          </div>
-      </section>
-
-
-      <!-- Footer -->
-      <footer class="px-6 py-8 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p id="footer-text" class="text-white text-sm">© 2025 Bytant Innovative Group. Innovating to Inspire
-          </p>
-          <div class="flex items-center gap-6">
-
-            <a href="https://www.x.com/bytant innovative group" class="text-gray-500 hover:text-[#FFB347] transition-colors">
-              <i class="fa-brands fa-x-twitter text-lg"></i>
-            </a>
-
-
-            <a href="https://www.github.com/bytant innovative group" class="text-gray-500 hover:text-[#FFB347] transition-colors">
-              <i class="fa-brands fa-github text-lg"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/bytant-innovative-group"
-              class="text-gray-500 hover:text-[#FFB347] transition-colors">
-              <i class="fa-brands fa-linkedin-in text-lg"></i>
-            </a>
-          </div>
-        </div>
-      </footer>
+  <div id="help-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
+    <div class="modal-panel polished-modal">
+      <button class="modal-close" id="close-help-modal" type="button" aria-label="Close help dialog"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-hero">
+        <div class="modal-mark"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <p class="eyebrow">Buy us coffee</p>
+        <h2 id="help-title">Fuel the builders behind Bytant.</h2>
+        <p>Support Team Bytant with a small contribution, a useful idea, or feedback that helps us keep building technology that serves people.</p>
+      </div>
+      <div class="modal-options rich-options">
+        <button data-help-action="donate" type="button">
+          <i class="fa-solid fa-heart"></i>
+          <span><strong>Buy us coffee</strong><small>Support research, tools, and product development.</small></span>
+        </button>
+        <button data-help-action="idea" type="button">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span><strong>Share an idea</strong><small>Tell us about a problem worth solving.</small></span>
+        </button>
+        <button data-help-action="suggestion" type="button">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span><strong>Leave a suggestion</strong><small>Help us improve the Bytant experience.</small></span>
+        </button>
+      </div>
     </div>
   </div>
+
+  <div id="donate-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="donate-title">
+    <div class="modal-panel">
+      <button class="modal-close" id="close-donate-modal" type="button" aria-label="Close donation dialog"><i class="fa-solid fa-xmark"></i></button>
+      <p class="eyebrow">Mobile money</p>
+      <h2 id="donate-title">Donate to Bytant</h2>
+      <div class="detail-list">
+        <p><span>Number</span><strong>(233) 507 410 361</strong></p>
+        <p><span>Name</span><strong>KELVIN OMABOE</strong></p>
+        <p><span>Network</span><strong>VODAFONE</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="idea-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="idea-title">
+    <div class="modal-panel wide">
+      <button class="modal-close" id="close-idea-modal" type="button" aria-label="Close idea dialog"><i class="fa-solid fa-xmark"></i></button>
+      <p class="eyebrow">Contribute</p>
+      <h2 id="idea-title">Share an idea</h2>
+      <form id="idea-form" class="stacked-form">
+        <div id="idea-identity-fields" class="form-grid">
+          <input name="name" autocomplete="name" placeholder="Full name" required>
+          <input name="email" type="email" autocomplete="email" placeholder="Email" required>
+        </div>
+        <label class="check-row"><input id="idea-anon" type="checkbox"> Submit anonymously</label>
+        <input name="idea_title" placeholder="Idea title" required>
+        <textarea name="idea_details" rows="4" placeholder="Describe the problem and the solution" required></textarea>
+        <button class="primary-btn" type="submit">Send idea</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="suggestion-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="suggestion-title">
+    <div class="modal-panel wide">
+      <button class="modal-close" id="close-suggestion-modal" type="button" aria-label="Close suggestion dialog"><i class="fa-solid fa-xmark"></i></button>
+      <p class="eyebrow">Feedback</p>
+      <h2 id="suggestion-title">Leave a suggestion</h2>
+      <form id="suggestion-form" class="stacked-form">
+        <div id="suggestion-identity-fields" class="form-grid">
+          <input name="name" autocomplete="name" placeholder="Full name">
+          <input name="email" type="email" autocomplete="email" placeholder="Email">
+        </div>
+        <label class="check-row"><input id="suggestion-anon" type="checkbox"> Submit anonymously</label>
+        <textarea name="suggestion" rows="4" placeholder="Share your suggestion" required></textarea>
+        <button class="primary-btn" type="submit">Send suggestion</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="contact-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <div class="modal-panel polished-modal">
+      <button class="modal-close" id="close-contact-modal" type="button" aria-label="Close contact dialog"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-hero">
+        <div class="modal-mark"><i class="fa-solid fa-comments"></i></div>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Build with Bytant</h2>
+        <p>Reach out for product conversations, services, partnerships, open source, or collaboration with Team Bytant.</p>
+      </div>
+      <div class="contact-actions rich-options">
+        <a href="https://wa.me/233507410361?text=Hello%20Bytant%2C%20I%27d%20like%20to%20talk." target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span><strong>WhatsApp</strong><small>Fastest way to start a conversation.</small></span>
+        </a>
+        <a href="mailto:bytantinnovativegroup@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
+          <span><strong>Email</strong><small>Send project details, proposals, or formal messages.</small></span>
+        </a>
+        <a href="#services" id="contact-services-link">
+          <i class="fa-solid fa-pen-ruler"></i>
+          <span><strong>Explore services</strong><small>See how Bytant can design or build for you.</small></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="services-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="services-title">
+    <div class="modal-panel polished-modal wide">
+      <button class="modal-close" id="close-services-modal" type="button" aria-label="Close services dialog"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-hero">
+        <div class="modal-mark"><i class="fa-solid fa-layer-group"></i></div>
+        <p class="eyebrow">Bytant services</p>
+        <h2 id="services-title">What we can build for you.</h2>
+        <p>From strategy and identity to product development, content systems, and growth support.</p>
+      </div>
+      <div class="services-list">
+        <article><i class="fa-solid fa-cubes-stacked"></i><span>Digital platforms and product development</span></article>
+        <article><i class="fa-solid fa-pen-nib"></i><span>Graphic design</span></article>
+        <article><i class="fa-solid fa-video"></i><span>AI video creation</span></article>
+        <article><i class="fa-solid fa-magnifying-glass-chart"></i><span>SEO</span></article>
+        <article><i class="fa-solid fa-fingerprint"></i><span>Brand identity creation</span></article>
+        <article><i class="fa-solid fa-mobile-screen-button"></i><span>Website and app design</span></article>
+        <article><i class="fa-solid fa-wand-magic-sparkles"></i><span>Creative campaign assets</span></article>
+        <article><i class="fa-solid fa-screwdriver-wrench"></i><span>Technical consulting and prototyping</span></article>
+      </div>
+      <a class="primary-btn modal-cta" href="https://wa.me/233507410361?text=Hello%20Bytant%2C%20I%27d%20like%20to%20ask%20about%20your%20services." target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+        Talk about a service
+      </a>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
