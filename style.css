@@ -1208,10 +1208,9 @@ textarea:focus {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav-links {
-    gap: 0.75rem;
-    font-size: 0.84rem;
+    display: none;
   }
 
   .site-header {
@@ -1223,10 +1222,6 @@ textarea:focus {
   .site-header {
     border-radius: 8px;
     align-items: center;
-  }
-
-  .nav-links {
-    display: none;
   }
 
   .hero,
