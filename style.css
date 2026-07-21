@@ -408,6 +408,27 @@ body.drawer-open {
   flex-wrap: wrap;
 }
 
+.hero-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+  color: #FF0000;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.hero-youtube i {
+  font-size: 1.25rem;
+}
+
+.hero-youtube:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
 .primary-btn,
 .ghost-btn {
   display: inline-flex;
@@ -1125,14 +1146,47 @@ h3 {
   height: 2.6rem;
   border: 1px solid var(--line);
   border-radius: 50%;
-  color: var(--muted);
-  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.social-links a:has(.fa-x-twitter) {
+  color: #000000;
+}
+
+.social-links a:has(.fa-github) {
+  color: #181717;
+}
+
+.social-links a:has(.fa-linkedin-in) {
+  color: #0A66C2;
+}
+
+.social-links a:has(.fa-youtube) {
+  color: #FF0000;
 }
 
 .social-links a:hover {
-  color: var(--violet);
-  border-color: rgba(160, 32, 240, 0.42);
   transform: translateY(-2px);
+}
+
+.social-links a:has(.fa-x-twitter):hover {
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.social-links a:has(.fa-github):hover {
+  border-color: rgba(24, 23, 23, 0.35);
+  background: rgba(24, 23, 23, 0.04);
+}
+
+.social-links a:has(.fa-linkedin-in):hover {
+  border-color: rgba(10, 102, 194, 0.45);
+  background: rgba(10, 102, 194, 0.08);
+}
+
+.social-links a:has(.fa-youtube):hover {
+  border-color: rgba(255, 0, 0, 0.4);
+  background: rgba(255, 0, 0, 0.08);
 }
 
 .modal {
