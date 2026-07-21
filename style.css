@@ -1,19 +1,19 @@
 :root {
-  --ink: #040426;
-  --night: #0a0a36;
+  --ink: #0D0B22;
+  --night: #0D0B22;
   --paper: #ffffff;
-  --paper-soft: #f7f5ff;
+  --paper-soft: #F5F3FF;
   --panel: rgba(255, 255, 255, 0.84);
   --panel-strong: rgba(255, 255, 255, 0.96);
-  --text: #05052e;
-  --muted: #5d6178;
-  --violet: #a020f0;
-  --purple: #6b16f2;
-  --blue: #3348ff;
-  --cyan: #7dd6ff;
-  --line: rgba(70, 55, 145, 0.16);
-  --shadow: 0 24px 80px rgba(25, 22, 92, 0.14);
-  --brand-gradient: linear-gradient(135deg, #2f35ff 0%, #6b16f2 42%, #a020f0 72%, #d756ff 100%);
+  --text: #0D0B22;
+  --muted: #687280;
+  --violet: #6D28F0;
+  --purple: #6D28F0;
+  --blue: #4F46E5;
+  --cyan: #A78BFA;
+  --line: rgba(109, 40, 240, 0.14);
+  --shadow: 0 24px 80px rgba(13, 11, 34, 0.12);
+  --brand-gradient: linear-gradient(135deg, #4F46E5 0%, #6D28F0 48%, #8B5CF6 100%);
 }
 
 * {
@@ -29,11 +29,11 @@ html {
 body {
   margin: 0;
   color: var(--text);
-  font-family: "Space Grotesk", Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   background:
-    radial-gradient(circle at 15% 8%, rgba(160, 32, 240, 0.14), transparent 28rem),
-    radial-gradient(circle at 90% 15%, rgba(51, 72, 255, 0.12), transparent 26rem),
-    linear-gradient(135deg, #ffffff 0%, #f8f7ff 48%, #eef6ff 100%);
+    radial-gradient(circle at 15% 8%, rgba(109, 40, 240, 0.12), transparent 28rem),
+    radial-gradient(circle at 90% 15%, rgba(79, 70, 229, 0.1), transparent 26rem),
+    linear-gradient(135deg, #ffffff 0%, #f8f7ff 48%, #f3f0ff 100%);
   min-height: 100vh;
   overflow-x: hidden;
   max-width: 100%;
@@ -46,18 +46,15 @@ body::before {
   pointer-events: none;
   opacity: 0.18;
   background-image:
-    linear-gradient(45deg, transparent 46%, rgba(160, 32, 240, 0.2) 47%, rgba(160, 32, 240, 0.2) 53%, transparent 54%),
-    linear-gradient(-45deg, transparent 46%, rgba(51, 72, 255, 0.14) 47%, rgba(51, 72, 255, 0.14) 53%, transparent 54%);
+    linear-gradient(45deg, transparent 46%, rgba(109, 40, 240, 0.16) 47%, rgba(109, 40, 240, 0.16) 53%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, rgba(79, 70, 229, 0.12) 47%, rgba(79, 70, 229, 0.12) 53%, transparent 54%);
   background-size: 86px 86px;
   mask-image: linear-gradient(to bottom, black, transparent 75%);
 }
 
-.font-display {
-  font-family: "Outfit", Arial, sans-serif;
-}
-
+.font-display,
 .font-body {
-  font-family: "Space Grotesk", Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
 }
 
 .gradient-text {
@@ -189,22 +186,28 @@ textarea {
 .brand {
   display: inline-flex;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
-  padding: 0.35rem;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 2.85rem;
+  width: auto;
+  max-width: 10.5rem;
+  padding: 0.18rem 0.4rem;
   overflow: hidden;
-  border-radius: 50%;
-  background: var(--panel-strong);
-  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--ink);
+  border: 1px solid rgba(109, 40, 240, 0.35);
 }
 
 .brand img {
-  border-radius: 50%;
-  clip-path: circle(50%);
-  object-fit: cover;
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 0.45rem;
+  object-fit: contain;
+  object-position: center;
 }
 
-.brand img,
 .team-logo img,
 .footer-brand img {
   width: 100%;
@@ -332,13 +335,16 @@ body.drawer-open {
 }
 
 .drawer-brand img {
-  width: 2.85rem;
-  height: 2.85rem;
-  padding: 0.24rem;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--panel-strong);
+  display: block;
+  width: auto;
+  height: 2.35rem;
+  max-width: 8.5rem;
+  padding: 0.12rem 0.3rem;
+  border: 1px solid rgba(109, 40, 240, 0.35);
+  border-radius: 0.55rem;
+  background: var(--ink);
   object-fit: contain;
+  object-position: center;
 }
 
 .drawer-close {
@@ -518,7 +524,7 @@ p {
 
 h1,
 h2 {
-  font-family: "Outfit", Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   letter-spacing: 0;
 }
 
@@ -916,8 +922,8 @@ h3 {
 
 .team-logo {
   width: min(28rem, 82vw);
-  aspect-ratio: 1;
-  padding: 1.2rem;
+  aspect-ratio: 16 / 9;
+  padding: 1.4rem;
   border-radius: 8px;
   background: var(--panel-strong);
   border: 1px solid var(--line);
@@ -926,6 +932,130 @@ h3 {
 .team-logo img,
 .footer-brand img {
   border-radius: 8px;
+}
+
+.logo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-tile {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  gap: 0.85rem;
+  min-height: 12rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.logo-tile.dark {
+  background: var(--ink);
+  color: #fff;
+}
+
+.logo-tile.light {
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+.logo-tile img {
+  width: min(100%, 18rem);
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-tile figcaption {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand-section .section-heading p:last-child {
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.brand-kit-frame {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.brand-kit-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.brand-swatches span {
+  display: grid;
+  place-items: end start;
+  width: 5.5rem;
+  height: 5.5rem;
+  padding: 0.55rem;
+  border-radius: 8px;
+  background: var(--swatch);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.brand-swatches small {
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.brand-swatches span:nth-child(4) small,
+.brand-swatches span:nth-child(5) small {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.shirt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shirt-grid figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.shirt-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.shirt-grid figcaption {
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 
 .stats-row {
@@ -967,9 +1097,9 @@ h3 {
 }
 
 .footer-brand img {
-  width: 4rem;
-  height: 4rem;
-  padding: 0.25rem;
+  width: 6.5rem;
+  height: 3.5rem;
+  padding: 0.35rem;
   background: var(--panel-strong);
   border: 1px solid var(--line);
 }
@@ -1333,6 +1463,11 @@ textarea:focus {
   .site-header {
     gap: 0.75rem;
   }
+
+  .brand {
+    height: 2.65rem;
+    max-width: 9.5rem;
+  }
 }
 
 @media (max-width: 860px) {
@@ -1473,9 +1608,19 @@ textarea:focus {
   }
 
   .brand {
-    width: 2.55rem;
-    height: 2.55rem;
-    flex: 0 0 auto;
+    height: 2.4rem;
+    max-width: 8.25rem;
+    padding: 0.14rem 0.32rem;
+  }
+
+  .logo-pair,
+  .shirt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-swatches span {
+    width: 4.6rem;
+    height: 4.6rem;
   }
 
   .primary-btn,
@@ -1678,8 +1823,14 @@ textarea:focus {
   }
 
   .brand {
-    width: 2.35rem;
-    height: 2.35rem;
+    height: 2.2rem;
+    max-width: 7.25rem;
+    padding: 0.1rem 0.28rem;
+  }
+
+  .drawer-brand img {
+    height: 2.1rem;
+    max-width: 7.5rem;
   }
 
 }

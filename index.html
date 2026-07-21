@@ -5,10 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bytant Innovative Group</title>
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -24,14 +27,14 @@
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Bytant home">
-      <img src="assets/img/hero logo.png" alt="Bytant Innovative Group logo">
+      <img src="assets/img/brandkit/parent logo 2 bg.png" alt="Bytant Innovative Group logo">
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#mission">Mission</a>
       <a href="#identity">Identity</a>
+      <a href="#brand">Brand</a>
       <a href="#products">Products</a>
       <a href="#open-source">Open Source</a>
-      <a href="#courses">Courses</a>
       <a href="#services">Services</a>
       <a href="#values">Values</a>
       <a href="#team">Team</a>
@@ -49,7 +52,7 @@
   <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <div class="drawer-header">
       <a class="drawer-brand" href="#home" aria-label="Bytant home">
-        <img src="assets/img/hero logo.png" alt="Bytant Innovative Group logo">
+        <img src="assets/img/brandkit/parent logo 2 bg.png" alt="Bytant Innovative Group logo">
         <span>Bytant</span>
       </a>
       <button class="drawer-close" id="drawer-close" type="button" aria-label="Close navigation">
@@ -59,9 +62,9 @@
     <nav class="drawer-links" aria-label="Mobile navigation">
       <a href="#mission">Mission</a>
       <a href="#identity">Identity</a>
+      <a href="#brand">Brand</a>
       <a href="#products">Products</a>
       <a href="#open-source">Open Source</a>
-      <a href="#courses">Courses</a>
       <a href="#services">Services</a>
       <a href="#values">Values</a>
       <a href="#team">Team</a>
@@ -120,6 +123,16 @@
         <p class="eyebrow">Official identity</p>
         <h2>One company. One innovation team. Many products.</h2>
       </div>
+      <div class="logo-pair reveal">
+        <figure class="logo-tile dark">
+          <img src="assets/img/brandkit/parent logo.PNG" alt="Bytant Innovative Group logo">
+          <figcaption>Bytant Innovative Group</figcaption>
+        </figure>
+        <figure class="logo-tile light">
+          <img src="assets/img/brandkit/team logo 1.jpg" alt="Team Bytant logo">
+          <figcaption>Team Bytant</figcaption>
+        </figure>
+      </div>
       <div class="identity-grid">
         <article class="identity-card reveal">
           <span>Company</span>
@@ -136,6 +149,54 @@
           <h3>From Team Bytant</h3>
           <p>Products are released under their own names with attribution when appropriate, such as Crib from Team Bytant.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="brand" class="section brand-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Brand system</p>
+        <h2>Color, type, and merch built around one mark.</h2>
+        <p>Innovate. Collaborate. Elevate.</p>
+      </div>
+      <div class="brand-kit-frame reveal">
+        <img src="assets/img/brandkit/brand kit.PNG" alt="Bytant brand kit showing logos, colors, typography, and merchandise">
+      </div>
+      <div class="brand-swatches reveal" aria-label="Brand colors">
+        <span style="--swatch:#6D28F0"><small>#6D28F0</small></span>
+        <span style="--swatch:#0D0B22"><small>#0D0B22</small></span>
+        <span style="--swatch:#687280"><small>#687280</small></span>
+        <span style="--swatch:#E5E7EB"><small>#E5E7EB</small></span>
+        <span style="--swatch:#FFFFFF"><small>#FFFFFF</small></span>
+      </div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Apparel</p>
+        <h2>Company and Team Bytant shirts.</h2>
+      </div>
+      <div class="shirt-grid reveal">
+        <figure>
+          <img src="assets/img/brandkit/company shirt black.PNG" alt="Bytant Innovative Group black t-shirt">
+          <figcaption>Company · Black</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/brandkit/company shirt white.PNG" alt="Bytant Innovative Group white t-shirt">
+          <figcaption>Company · White</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/brandkit/company shirt blue.PNG" alt="Bytant Innovative Group blue t-shirt">
+          <figcaption>Company · Blue</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/brandkit/company shirt red.PNG" alt="Bytant Innovative Group red t-shirt">
+          <figcaption>Company · Red</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/brandkit/team shirt black.PNG" alt="Team Bytant black t-shirt">
+          <figcaption>Team · Black</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/brandkit/team shirt red.PNG" alt="Team Bytant red t-shirt">
+          <figcaption>Team · Red</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -218,30 +279,6 @@
           <span>Responsible release</span>
           <h3>Open with care</h3>
           <p>Open source work must still protect users, privacy, intellectual property, security, and the reputation of Bytant.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="courses" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Courses</p>
-        <h2>Foundational learning tracks for curious builders.</h2>
-      </div>
-      <div class="identity-grid">
-        <article class="identity-card reveal">
-          <span>Language</span>
-          <h3>English 101</h3>
-          <p>A practical foundation for clear communication, reading, writing, and confident expression.</p>
-        </article>
-        <article class="identity-card reveal">
-          <span>Numeracy</span>
-          <h3>Math 101</h3>
-          <p>A beginner-friendly path through core mathematical thinking, problem solving, and everyday numeracy.</p>
-        </article>
-        <article class="identity-card reveal">
-          <span>Discovery</span>
-          <h3>Science 101</h3>
-          <p>An introduction to scientific curiosity, observation, basic concepts, and understanding how the world works.</p>
         </article>
       </div>
     </section>
@@ -407,7 +444,7 @@
 
     <section id="team" class="section team-section">
       <div class="team-logo reveal">
-        <img src="assets/img/team bytant.png" alt="Team Bytant logo">
+        <img src="assets/img/brandkit/team logo 1.jpg" alt="Team Bytant logo">
       </div>
       <div class="section-copy reveal">
         <p class="eyebrow">Team Bytant</p>
@@ -424,7 +461,7 @@
 
   <footer class="site-footer">
     <div class="footer-brand">
-      <img src="assets/img/team bytant.png" alt="Team Bytant logo">
+      <img src="assets/img/brandkit/team logo 1.jpg" alt="Team Bytant logo">
       <div>
         <strong>From Team Bytant</strong>
         <p>Innovating to Inspire. Building for generations, not trends.</p>
