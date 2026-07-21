@@ -188,24 +188,25 @@ textarea {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  height: 2.85rem;
+  height: 3.25rem;
   width: auto;
-  max-width: 10.5rem;
-  padding: 0.18rem 0.4rem;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  background: var(--ink);
-  border: 1px solid rgba(109, 40, 240, 0.35);
+  max-width: 12.5rem;
+  padding: 0.28rem 0.5rem;
+  overflow: visible;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  border: 1px solid rgba(109, 40, 240, 0.22);
+  box-sizing: border-box;
 }
 
 .brand img {
   display: block;
   width: auto;
-  height: 100%;
+  height: 2.7rem;
   max-width: 100%;
-  border-radius: 0.45rem;
+  border-radius: 0;
   object-fit: contain;
-  object-position: center;
+  object-position: center center;
 }
 
 .team-logo img,
@@ -218,17 +219,25 @@ textarea {
 .nav-links {
   display: flex;
   gap: 1.25rem;
+  align-items: center;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links button {
   position: relative;
   padding: 0.55rem 0.15rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
   transition: color 220ms ease, transform 220ms ease;
 }
 
-.nav-links a::after {
+.nav-links a::after,
+.nav-links button::after {
   content: "";
   position: absolute;
   left: 0.15rem;
@@ -244,7 +253,8 @@ textarea {
 }
 
 .nav-links a:hover,
-.nav-links a.is-active {
+.nav-links a.is-active,
+.nav-links button:hover {
   color: var(--violet);
 }
 
@@ -337,14 +347,14 @@ body.drawer-open {
 .drawer-brand img {
   display: block;
   width: auto;
-  height: 2.35rem;
-  max-width: 8.5rem;
-  padding: 0.12rem 0.3rem;
-  border: 1px solid rgba(109, 40, 240, 0.35);
-  border-radius: 0.55rem;
-  background: var(--ink);
+  height: 2.7rem;
+  max-width: 10.5rem;
+  padding: 0.22rem 0.4rem;
+  border: 1px solid rgba(109, 40, 240, 0.22);
+  border-radius: 0.65rem;
+  background: #ffffff;
   object-fit: contain;
-  object-position: center;
+  object-position: center center;
 }
 
 .drawer-close {
@@ -365,21 +375,27 @@ body.drawer-open {
   padding-top: 0.5rem;
 }
 
-.drawer-links a {
+.drawer-links a,
+.drawer-links button {
   display: flex;
   align-items: center;
+  width: 100%;
   min-height: 3rem;
   padding: 0 0.9rem;
   border: 1px solid var(--line);
   border-radius: 18px;
   color: var(--text);
   background: rgba(248, 249, 255, 0.9);
+  font: inherit;
   font-weight: 750;
+  text-align: left;
+  cursor: pointer;
   transition: color 220ms ease, border-color 220ms ease, background 220ms ease, transform 220ms ease;
 }
 
 .drawer-links a:hover,
-.drawer-links a.is-active {
+.drawer-links a.is-active,
+.drawer-links button:hover {
   color: var(--violet);
   border-color: rgba(107, 22, 242, 0.28);
   background: linear-gradient(135deg, rgba(51, 72, 255, 0.08), rgba(160, 32, 240, 0.1));
@@ -775,6 +791,14 @@ h3 {
   line-height: 1.75;
 }
 
+.product-outcome {
+  margin: 0 0 0.75rem;
+  color: var(--violet) !important;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5 !important;
+}
+
 .product-copy a {
   display: inline-flex;
   align-items: center;
@@ -1149,10 +1173,6 @@ h3 {
   transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
 }
 
-.social-links a:has(.fa-x-twitter) {
-  color: #000000;
-}
-
 .social-links a:has(.fa-github) {
   color: #181717;
 }
@@ -1167,11 +1187,6 @@ h3 {
 
 .social-links a:hover {
   transform: translateY(-2px);
-}
-
-.social-links a:has(.fa-x-twitter):hover {
-  border-color: rgba(0, 0, 0, 0.35);
-  background: rgba(0, 0, 0, 0.04);
 }
 
 .social-links a:has(.fa-github):hover {
@@ -1519,8 +1534,8 @@ textarea:focus {
   }
 
   .brand {
-    height: 2.65rem;
-    max-width: 9.5rem;
+    height: 3rem;
+    max-width: 11.5rem;
   }
 }
 
@@ -1658,13 +1673,17 @@ textarea:focus {
     min-height: 4rem;
     padding: 0.55rem 0.75rem;
     gap: 0.55rem;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .brand {
-    height: 2.4rem;
-    max-width: 8.25rem;
-    padding: 0.14rem 0.32rem;
+    height: 2.9rem;
+    max-width: 10.75rem;
+    padding: 0.22rem 0.4rem;
+  }
+
+  .brand img {
+    height: 2.45rem;
   }
 
   .logo-pair,
@@ -1877,14 +1896,18 @@ textarea:focus {
   }
 
   .brand {
-    height: 2.2rem;
-    max-width: 7.25rem;
-    padding: 0.1rem 0.28rem;
+    height: 2.75rem;
+    max-width: 10rem;
+    padding: 0.2rem 0.36rem;
+  }
+
+  .brand img {
+    height: 2.3rem;
   }
 
   .drawer-brand img {
-    height: 2.1rem;
-    max-width: 7.5rem;
+    height: 2.4rem;
+    max-width: 9.5rem;
   }
 
 }

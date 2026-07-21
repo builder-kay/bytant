@@ -86,11 +86,37 @@ document.querySelectorAll("#help-us-btn, [data-open-help]").forEach((button) => 
 });
 
 document.querySelectorAll("#nav-cta-btn, [data-open-contact]").forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
     closeDrawer();
     toggleModal(contactModal, true);
   });
 });
+
+const copyEmailBtn = document.getElementById("copy-email-btn");
+if (copyEmailBtn) {
+  copyEmailBtn.addEventListener("click", async () => {
+    const email = copyEmailBtn.dataset.email || "teambytant@gmail.com";
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const input = document.createElement("input");
+        input.value = email;
+        input.setAttribute("readonly", "");
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+      }
+      showToast("Email copied: teambytant@gmail.com");
+    } catch (error) {
+      showToast("Copy failed — teambytant@gmail.com");
+    }
+  });
+}
 
 if (window.matchMedia) {
   window.matchMedia("(min-width: 861px)").addEventListener("change", (event) => {
@@ -112,15 +138,31 @@ function setupActiveNavigation() {
   const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"], .drawer-links a[href^="#"]'));
   if (!navLinks.length) return;
 
-  const sectionIds = [...new Set(navLinks.map((link) => link.getAttribute("href")).filter((href) => href && href.length > 1))];
-  const sections = sectionIds
-    .map((href) => document.getElementById(href.slice(1)))
+  const aboutIds = new Set([
+    "mission",
+    "identity",
+    "brand",
+    "values",
+    "method",
+  ]);
+
+  const trackedIds = ["home", "products", "services", "open-source", "culture", "team", ...aboutIds];
+  const sections = trackedIds
+    .map((id) => document.getElementById(id))
     .filter(Boolean);
   if (!sections.length) return;
 
-  function setActiveLink(activeId) {
+  function navKeyForSection(sectionId) {
+    if (!sectionId) return null;
+    if (aboutIds.has(sectionId)) return "about";
+    return sectionId;
+  }
+
+  function setActiveLink(activeKey) {
     navLinks.forEach((link) => {
-      const isActive = link.getAttribute("href") === `#${activeId}`;
+      const href = link.getAttribute("href");
+      const key = link.dataset.nav || (href ? href.slice(1) : "");
+      const isActive = Boolean(activeKey) && key === activeKey;
       link.classList.toggle("is-active", isActive);
       if (isActive) {
         link.setAttribute("aria-current", "page");
@@ -137,13 +179,15 @@ function setupActiveNavigation() {
       return top <= offset ? section : active;
     }, null);
 
-    setActiveLink(current ? current.id : null);
+    setActiveLink(navKeyForSection(current ? current.id : null));
   }
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       const href = link.getAttribute("href");
-      if (href && href.length > 1) setActiveLink(href.slice(1));
+      if (!href || href.length <= 1) return;
+      const sectionId = href.slice(1);
+      setActiveLink(navKeyForSection(sectionId));
     });
   });
 

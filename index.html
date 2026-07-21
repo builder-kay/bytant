@@ -27,18 +27,17 @@
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Bytant home">
-      <img src="assets/img/brandkit/parent%20logo%202.PNG" alt="Bytant Innovative Group logo">
+      <img src="assets/img/brandkit/parent-logo-2-bg-nav.png" alt="Bytant Innovative Group logo" width="560" height="336">
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#home">Home</a>
-      <a href="#mission">Mission</a>
-      <a href="#identity">Identity</a>
-      <a href="#brand">Brand</a>
       <a href="#products">Products</a>
-      <a href="#open-source">Open Source</a>
       <a href="#services">Services</a>
-      <a href="#values">Values</a>
+      <a href="#open-source">Open Source</a>
+      <a href="#mission" data-nav="about">About</a>
+      <a href="#culture">Culture</a>
       <a href="#team">Team</a>
+      <button type="button" data-open-contact>Contact</button>
     </nav>
     <div class="nav-actions">
       <button class="ghost-btn" id="help-us-btn" type="button"><span class="desktop-label">Buy us coffee</span><span class="mobile-label">Coffee</span></button>
@@ -53,7 +52,7 @@
   <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <div class="drawer-header">
       <a class="drawer-brand" href="#home" aria-label="Bytant home">
-        <img src="assets/img/brandkit/parent%20logo%202.PNG" alt="Bytant Innovative Group logo">
+        <img src="assets/img/brandkit/parent-logo-2-bg-nav.png" alt="Bytant Innovative Group logo" width="560" height="336">
         <span>Bytant</span>
       </a>
       <button class="drawer-close" id="drawer-close" type="button" aria-label="Close navigation">
@@ -62,14 +61,13 @@
     </div>
     <nav class="drawer-links" aria-label="Mobile navigation">
       <a href="#home">Home</a>
-      <a href="#mission">Mission</a>
-      <a href="#identity">Identity</a>
-      <a href="#brand">Brand</a>
       <a href="#products">Products</a>
-      <a href="#open-source">Open Source</a>
       <a href="#services">Services</a>
-      <a href="#values">Values</a>
+      <a href="#open-source">Open Source</a>
+      <a href="#mission" data-nav="about">About</a>
+      <a href="#culture">Culture</a>
       <a href="#team">Team</a>
+      <button type="button" data-open-contact>Contact</button>
     </nav>
     <div class="drawer-actions">
       <button class="ghost-btn" type="button" data-open-help>Buy us coffee</button>
@@ -89,7 +87,7 @@
         </div>
         <a class="hero-youtube" href="https://www.youtube.com/@teambytant" target="_blank" rel="noopener">
           <i class="fa-brands fa-youtube"></i>
-          <span>Learn with us — comment, like, and share our videos</span>
+          <span>Watch &amp; learn with Team Bytant</span>
         </a>
       </div>
     </section>
@@ -225,6 +223,7 @@
                 <div class="product-copy">
                   <span>Government services</span>
                   <h3>GovFlow</h3>
+                  <p class="product-outcome">Live in Ghana · Helps citizens finish government services with clear roadmaps.</p>
                   <p>A Ghana-focused government service copilot that helps people move from confusion to completion with roadmaps, checklists, and guidance.</p>
                   <a href="https://govflowgh.vercel.app/" target="_blank" rel="noopener">Visit homepage <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
@@ -236,6 +235,7 @@
                 <div class="product-copy">
                   <span>Health guidance</span>
                   <h3>Apomuden Triage</h3>
+                  <p class="product-outcome">Live for Ghana &amp; West Africa · Turns symptoms into practical next-care steps.</p>
                   <p>An AI health guidance experience for Ghana and West Africa, built for symptom urgency checks, local care navigation, and practical next steps.</p>
                   <a href="https://apomudentriage.help/" target="_blank" rel="noopener">Visit homepage <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
@@ -247,6 +247,7 @@
                 <div class="product-copy">
                   <span>Creative marketplace</span>
                   <h3>Crib Africa</h3>
+                  <p class="product-outcome">Live marketplace · Connects buyers with editable assets from African creators.</p>
                   <p>A marketplace for editable creative assets from local creators, helping buyers discover templates, source files, kits, and production resources.</p>
                   <a href="https://cribafrica.space/" target="_blank" rel="noopener">Visit homepage <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
@@ -481,7 +482,6 @@
       </div>
     </div>
     <div class="social-links">
-      <a href="https://www.x.com/bytant innovative group" aria-label="Bytant on X"><i class="fa-brands fa-x-twitter"></i></a>
       <a href="https://github.com/teambytant" aria-label="Bytant on GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.linkedin.com/company/bytant-innovative-group" aria-label="Bytant on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://www.youtube.com/@teambytant" target="_blank" rel="noopener" aria-label="Bytant on YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -515,10 +515,10 @@
           <i class="fa-brands fa-whatsapp"></i>
           <span><strong>WhatsApp</strong><small>Fastest way to start a conversation.</small></span>
         </a>
-        <a href="mailto:teambytant@gmail.com">
+        <button type="button" id="copy-email-btn" data-email="teambytant@gmail.com">
           <i class="fa-solid fa-envelope"></i>
-          <span><strong>Email</strong><small>teambytant@gmail.com</small></span>
-        </a>
+          <span><strong>Email</strong><small>teambytant@gmail.com · tap to copy</small></span>
+        </button>
         <a href="#services" id="contact-services-link">
           <i class="fa-solid fa-pen-ruler"></i>
           <span><strong>Explore services</strong><small>See how Bytant can design or build for you.</small></span>
