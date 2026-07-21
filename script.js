@@ -149,11 +149,12 @@ function setupActiveNavigation() {
   const trackedIds = ["home", "products", "services", "open-source", "culture", "team", ...aboutIds];
   const sections = trackedIds
     .map((id) => document.getElementById(id))
-    .filter(Boolean);
+    .filter(Boolean)
+    .sort((a, b) => a.offsetTop - b.offsetTop);
   if (!sections.length) return;
 
   function navKeyForSection(sectionId) {
-    if (!sectionId) return null;
+    if (!sectionId || sectionId === "home") return sectionId === "home" ? "home" : null;
     if (aboutIds.has(sectionId)) return "about";
     return sectionId;
   }
@@ -174,10 +175,18 @@ function setupActiveNavigation() {
 
   function updateActiveFromScroll() {
     const offset = window.innerHeight * 0.38;
-    const current = sections.reduce((active, section) => {
-      const top = section.getBoundingClientRect().top;
-      return top <= offset ? section : active;
-    }, null);
+    let current = null;
+
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= offset) {
+        current = section;
+      }
+    });
+
+    // Near the very top, force Home even though #home wraps the page
+    if (window.scrollY < 80) {
+      current = document.getElementById("home");
+    }
 
     setActiveLink(navKeyForSection(current ? current.id : null));
   }
