@@ -26,7 +26,11 @@
     }
     document.body.classList.toggle('motion-paused', paused || document.hidden);
     toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = reducedMotion.matches ? 'Reduced motion on' : paused ? 'Resume motion ▷' : 'Pause motion Ⅱ';
+    toggle.innerHTML = reducedMotion.matches
+      ? 'Reduced motion on'
+      : paused
+        ? 'Resume motion <i class="fa-solid fa-play" aria-hidden="true"></i>'
+        : 'Pause motion <i class="fa-solid fa-pause" aria-hidden="true"></i>';
     toggle.disabled = reducedMotion.matches;
     running.forEach(control => {
       if (paused) control.complete();
@@ -66,6 +70,32 @@
     });
   }, { threshold: .08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const impactGrid = document.querySelector('.impact-grid');
+  if (impactGrid) {
+    const countUp = count => {
+      const target = Number(count.dataset.count);
+      const suffix = count.dataset.suffix || '';
+      if (reducedMotion.matches) { count.textContent = `${target}${suffix}`; return; }
+      const startedAt = performance.now();
+      const duration = 1250;
+      const tick = now => {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        count.textContent = `${Math.round(target * eased)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      count.textContent = `0${suffix}`;
+      requestAnimationFrame(tick);
+    };
+    const impactObserver = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      impactGrid.classList.add('is-counting');
+      impactGrid.querySelectorAll('.impact-count').forEach(countUp);
+      impactObserver.unobserve(impactGrid);
+    }, { threshold: .35 });
+    impactObserver.observe(impactGrid);
+  }
 
   new IntersectionObserver(([entry]) => {
     orbitVisible = entry.isIntersecting;
