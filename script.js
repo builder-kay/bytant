@@ -20,7 +20,14 @@ function openWhatsApp(message) {
 
 function toggleModal(modal, shouldOpen) {
   if (!modal) return;
+  if (shouldOpen) modal.returnFocus = document.activeElement;
   modal.classList.toggle("hidden", !shouldOpen);
+  document.body.classList.toggle("modal-open", Boolean(document.querySelector('.modal:not(.hidden)')));
+  if (shouldOpen) modal.querySelector('button, a, input')?.focus();
+  else if (modal.returnFocus) {
+    modal.returnFocus.focus();
+    modal.returnFocus = null;
+  }
 }
 
 function wireModal(modalId, closeId) {
@@ -43,7 +50,6 @@ function wireModal(modalId, closeId) {
 
 const donateModal = wireModal("donate-modal", "close-donate-modal");
 const contactModal = wireModal("contact-modal", "close-contact-modal");
-const servicesModal = wireModal("services-modal", "close-services-modal");
 
 const menuToggle = document.getElementById("menu-toggle");
 const drawer = document.getElementById("mobile-drawer");
@@ -56,8 +62,13 @@ function toggleDrawer(shouldOpen) {
   drawerBackdrop.classList.toggle("is-open", shouldOpen);
   document.body.classList.toggle("drawer-open", shouldOpen);
   drawer.setAttribute("aria-hidden", String(!shouldOpen));
+  drawer.inert = !shouldOpen;
   menuToggle.setAttribute("aria-expanded", String(shouldOpen));
+  if (shouldOpen) drawerClose?.focus();
+  else if (drawer.contains(document.activeElement)) menuToggle.focus();
 }
+
+if (drawer) drawer.inert = true;
 
 function closeDrawer() {
   toggleDrawer(false);
@@ -124,14 +135,26 @@ if (window.matchMedia) {
   });
 }
 
-const contactServicesLink = document.getElementById("contact-services-link");
-if (contactServicesLink) {
-  contactServicesLink.addEventListener("click", () => toggleModal(contactModal, false));
-}
-
-const viewServicesButton = document.getElementById("view-services-btn");
-if (viewServicesButton) {
-  viewServicesButton.addEventListener("click", () => toggleModal(servicesModal, true));
+const projectInquiryForm = document.getElementById("project-inquiry-form");
+if (projectInquiryForm) {
+  projectInquiryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(projectInquiryForm);
+    const message = [
+      "Hello Bytant, I'd like to discuss a project.",
+      "",
+      `Name: ${data.get("name")}`,
+      `Organization: ${data.get("organization") || "Not provided"}`,
+      `Contact: ${data.get("contact")}`,
+      `Project type: ${data.get("projectType")}`,
+      `Budget: ${data.get("budget")}`,
+      `Timeline: ${data.get("timeline")}`,
+      "",
+      "Project summary:",
+      data.get("summary"),
+    ].join("\n");
+    openWhatsApp(message);
+  });
 }
 
 function setupActiveNavigation() {
@@ -140,13 +163,10 @@ function setupActiveNavigation() {
 
   const aboutIds = new Set([
     "mission",
-    "identity",
-    "brand",
-    "values",
-    "method",
+    "who-we-are",
   ]);
 
-  const trackedIds = ["home", "products", "services", "open-source", "culture", "team", ...aboutIds];
+  const trackedIds = ["home", "what-we-do", "products", "services", "open-source", ...aboutIds];
   const sections = trackedIds
     .map((id) => document.getElementById(id))
     .filter(Boolean)
@@ -247,6 +267,10 @@ function setupProductCarousel() {
 
   function update() {
     track.style.transform = `translateX(-${index * 100}%)`;
+    slides.forEach((slide, slideIndex) => {
+      slide.inert = slideIndex !== index;
+      slide.setAttribute('aria-hidden', String(slideIndex !== index));
+    });
     dots.forEach((dot, dotIndex) => {
       dot.classList.toggle("is-active", dotIndex === index);
       dot.setAttribute("aria-current", dotIndex === index ? "true" : "false");
@@ -277,8 +301,22 @@ function setupProductCarousel() {
 
 setupProductCarousel();
 
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Tab') return;
+  const activeDialog = document.querySelector('.modal:not(.hidden)') || document.querySelector('.mobile-drawer.is-open');
+  if (!activeDialog) return;
+  const focusable = Array.from(activeDialog.querySelectorAll('button, a[href], input, textarea, [tabindex="0"]')).filter(el => !el.disabled && el.getClientRects().length);
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && (document.activeElement === first || !activeDialog.contains(document.activeElement))) {
+    event.preventDefault(); last?.focus();
+  } else if (!event.shiftKey && (document.activeElement === last || !activeDialog.contains(document.activeElement))) {
+    event.preventDefault(); first?.focus();
+  }
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   closeDrawer();
-  [donateModal, contactModal, servicesModal].forEach((modal) => toggleModal(modal, false));
+  [donateModal, contactModal].forEach((modal) => toggleModal(modal, false));
 });
