@@ -843,3 +843,7 @@
   .experience .site-header .brand { width: 130px; height: 66px; }
   .experience .site-header .brand .brand-logo { width: 187px; height: 150px; transform: translate(-29px, -39px); }
 }
+
+/* Photography gives each service a concrete visual context. */
+.service-visual::before, .service-visual::after { display: none; }
+.service-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
