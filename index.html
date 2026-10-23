@@ -108,7 +108,7 @@
         <p class="hero-lede">Digital products, AI, and secure platforms. Built in Ghana, for Africa and beyond.</p>
         <div class="hero-actions">
           <a class="primary-btn" href="#products">Explore our work</a>
-          <button class="ghost-btn" type="button" data-open-contact>Build with us</button>
+          <button class="ghost-btn" type="button" data-open-contact>Hire us</button>
         </div>
         <a class="hero-youtube" href="https://www.youtube.com/@teambytant" target="_blank" rel="noopener">
           <i class="fa-brands fa-youtube"></i>
@@ -364,17 +364,16 @@
   <div id="contact-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="contact-title">
     <div class="modal-panel polished-modal inquiry-modal">
       <button class="modal-close" id="close-contact-modal" type="button" aria-label="Close contact dialog"><i class="fa-solid fa-xmark"></i></button>
-      <div class="modal-hero"><div class="modal-mark"><i class="fa-solid fa-rocket"></i></div><p class="eyebrow">Project inquiry</p><h2 id="contact-title">Tell us what you want to build.</h2><p>Share the essentials. We will prepare a WhatsApp message for you to review and send directly to Team Bytant.</p></div>
+      <div class="modal-hero"><div class="modal-mark"><i class="fa-solid fa-rocket"></i></div><p class="eyebrow">Hire us</p><h2 id="contact-title">Tell us what you need.</h2><p>Share your requirements. We will prepare a WhatsApp message for you to review and send to Team Bytant.</p></div>
       <form id="project-inquiry-form" class="inquiry-form">
         <div class="form-grid">
-          <label><span>Your name</span><input name="name" autocomplete="name" required placeholder="Ama Mensah"></label>
-          <label><span>Organization</span><input name="organization" autocomplete="organization" placeholder="Company or team"></label>
-          <label><span>Email or phone</span><input name="contact" required placeholder="How should we reach you?"></label>
-          <label><span>What do you need?</span><select name="projectType" required><option value="">Choose one</option><option>Website or web platform</option><option>Mobile application</option><option>AI solution</option><option>Cybersecurity support</option><option>Data analysis or dashboard</option><option>Graphic design or branding</option><option>Product design or prototype</option><option>Technology partnership</option><option>Something else</option></select></label>
-          <label><span>Approximate budget</span><select name="budget"><option>Not sure yet</option><option>Under $2,500</option><option>$2,500–$10,000</option><option>$10,000–$25,000</option><option>$25,000+</option></select></label>
-          <label><span>Ideal timeline</span><select name="timeline"><option>Open to discussion</option><option>Within 1 month</option><option>1–3 months</option><option>3–6 months</option><option>6+ months</option></select></label>
+          <label><span>Person or organization name</span><input name="name" autocomplete="name" required placeholder="Your name or organization"></label>
+          <label><span>Email or phone</span><input name="contact" required placeholder="Email address or phone number"></label>
+          <label><span>WhatsApp contact</span><input name="whatsapp" type="tel" autocomplete="tel" required placeholder="Include your country code, e.g. +233"></label>
+          <label><span>Required service</span><select name="projectType" required><option value="">Choose a service</option><option>Website or web platform</option><option>Mobile application</option><option>AI solution</option><option>Data analysis or dashboard</option><option>Cybersecurity support</option><option>Product design or prototype</option><option>Graphic design or branding</option><option>Technology partnership</option><option>Something else</option></select></label>
         </div>
-        <label><span>Tell us about the problem or idea</span><textarea name="summary" rows="4" required placeholder="What are you trying to achieve, and who is it for?"></textarea></label>
+        <label><span>More about the required service</span><textarea name="summary" rows="4" required placeholder="Describe what you need, who it is for, and what you want to achieve."></textarea></label>
+        <label><span>Anything else we should know? (optional)</span><textarea name="additionalNotes" rows="3" placeholder="Share any deadlines, budget, references, or other requirements."></textarea></label>
         <button class="primary-btn inquiry-submit" type="submit"><i class="fa-brands fa-whatsapp"></i> Review and send on WhatsApp</button>
       </form>
       <div class="quick-contact"><span>Prefer email?</span><a href="mailto:teambytant@gmail.com">teambytant@gmail.com</a><button type="button" id="copy-email-btn" data-email="teambytant@gmail.com">Copy email</button></div>

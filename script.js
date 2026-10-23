@@ -133,17 +133,18 @@ if (projectInquiryForm) {
     event.preventDefault();
     const data = new FormData(projectInquiryForm);
     const message = [
-      "Hello Bytant, I'd like to discuss a project.",
+      "Hello Bytant, I'd like to hire your team.",
       "",
-      `Name: ${data.get("name")}`,
-      `Organization: ${data.get("organization") || "Not provided"}`,
-      `Contact: ${data.get("contact")}`,
-      `Project type: ${data.get("projectType")}`,
-      `Budget: ${data.get("budget")}`,
-      `Timeline: ${data.get("timeline")}`,
+      `Person or organization: ${data.get("name")}`,
+      `Email or phone: ${data.get("contact")}`,
+      `WhatsApp contact: ${data.get("whatsapp")}`,
+      `Required service: ${data.get("projectType")}`,
       "",
-      "Project summary:",
+      "Service requirements:",
       data.get("summary"),
+      "",
+      "Anything else to know:",
+      data.get("additionalNotes") || "Not provided",
     ].join("\n");
     openWhatsApp(message);
   });
