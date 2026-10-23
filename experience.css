@@ -889,3 +889,10 @@ body.service-detail-open { overflow: hidden; }
 @media (max-width: 560px) {
   .experience .hero { padding-top: 160px; }
 }
+
+/* Center the mobile brand independently of the menu control. */
+@media (max-width: 860px) {
+  .experience .site-header { justify-content: flex-end; min-height: 94px; }
+  .experience .site-header .brand { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); }
+  .experience .site-header.is-mobile-scrolled .brand { transform: translate(-50%, -8px); }
+}
