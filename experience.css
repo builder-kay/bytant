@@ -784,3 +784,11 @@
 .experience .workflow-loop { max-width: 48ch; margin: -12px auto 0; color: #80648f; font-size: 12px; line-height: 1.8; }
 .experience #mission .working-principles { margin-top: 0; }
 @media (max-width: 560px) { .workflow-node { padding: 26px 20px; } .workflow-step { padding-bottom: 36px; } }
+
+/* Direct manipulation for the project showcase. */
+.experience #products .product-viewport { touch-action: pan-y pinch-zoom; cursor: grab; }
+.experience #products .product-viewport.is-dragging { cursor: grabbing; user-select: none; }
+.experience #products .product-track { transition: transform 420ms ease, translate 300ms ease; }
+.experience #products .is-dragging .product-track { transition: none; }
+.experience #products .product-shot img { user-select: none; -webkit-user-drag: none; }
+@media (prefers-reduced-motion: reduce) { .experience #products .product-track { transition: none; } }

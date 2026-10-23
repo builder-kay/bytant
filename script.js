@@ -250,7 +250,6 @@ function setupProductCarousel() {
   if (!slides.length) return;
 
   let index = 0;
-  let touchStartX = 0;
 
   const dots = slides.map((_, slideIndex) => {
     const dot = document.createElement("button");
@@ -285,16 +284,66 @@ function setupProductCarousel() {
   if (prev) prev.addEventListener("click", () => move(-1));
   if (next) next.addEventListener("click", () => move(1));
 
-  track.addEventListener("touchstart", (event) => {
-    touchStartX = event.touches[0].clientX;
-  }, { passive: true });
-
-  track.addEventListener("touchend", (event) => {
-    const delta = event.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(delta) > 45) {
-      move(delta < 0 ? 1 : -1);
+  const viewport = track.closest('.product-viewport');
+  let drag;
+  let suppressClick = false;
+  const resetDrag = () => {
+    drag = null;
+    viewport.classList.remove('is-dragging');
+    track.style.removeProperty('translate');
+  };
+  viewport.addEventListener('dragstart', event => event.preventDefault());
+  viewport.addEventListener('pointerdown', event => {
+    if (event.button !== 0 || event.target.closest('button')) return;
+    suppressClick = false;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0 };
+  });
+  viewport.addEventListener('pointermove', event => {
+    if (!drag || drag.id !== event.pointerId) return;
+    const dx = event.clientX - drag.x;
+    const dy = event.clientY - drag.y;
+    if (!viewport.classList.contains('is-dragging') && Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 10) { resetDrag(); return; }
+    if (Math.abs(dx) > 8) {
+      viewport.classList.add('is-dragging');
+      viewport.setPointerCapture(event.pointerId);
+      suppressClick = true;
+      drag.dx = dx;
+      track.style.translate = `${Math.max(-200, Math.min(200, dx))}px 0`;
     }
   });
+  function endDrag(event) {
+    if (!drag || drag.id !== event.pointerId) return;
+    const dx = drag.dx;
+    resetDrag();
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    if (event.type !== 'pointercancel' && Math.abs(dx) > 45) move(dx < 0 ? 1 : -1);
+  }
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+  viewport.addEventListener('lostpointercapture', endDrag);
+  viewport.addEventListener('click', event => {
+    if (!suppressClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClick = false;
+  }, true);
+  let wheelDistance = 0;
+  let wheelUsed = false;
+  let wheelTimer;
+  viewport.addEventListener('wheel', event => {
+    if (event.ctrlKey) return;
+    const delta = event.shiftKey && !event.deltaX ? event.deltaY : event.deltaX;
+    if (!delta || (!event.shiftKey && Math.abs(event.deltaY) >= Math.abs(delta))) return;
+    event.preventDefault();
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => { wheelDistance = 0; wheelUsed = false; }, 180);
+    if (wheelUsed) return;
+    wheelDistance += delta * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1);
+    if (Math.abs(wheelDistance) >= 45) {
+      move(wheelDistance > 0 ? 1 : -1);
+      wheelUsed = true;
+    }
+  }, { passive: false });
 
   update();
 }
