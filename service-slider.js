@@ -4,7 +4,6 @@
   const cards = [...slider.querySelectorAll('.service-card')];
   const controls = slider.querySelector('.service-controls');
   const pagination = slider.querySelector('.service-pagination');
-  const status = slider.querySelector('.service-status');
   let active = 0;
   const dots = cards.map((card, index) => {
     const button = document.createElement('button');
@@ -27,7 +26,6 @@
       card.setAttribute('aria-hidden', String(offset !== 0));
       dots[i].setAttribute('aria-pressed', String(offset === 0));
     });
-    status.textContent = `${String(active + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')} - ${cards[active].querySelector('h3').textContent}`;
   }
   slider.classList.add('is-ready');
   controls.hidden = false;
