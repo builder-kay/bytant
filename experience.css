@@ -847,3 +847,25 @@
 /* Photography gives each service a concrete visual context. */
 .service-visual::before, .service-visual::after { display: none; }
 .service-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* Large, accessible service detail dialog, with its own scrollable surface. */
+body.service-detail-open { overflow: hidden; }
+.service-detail-dialog { width: min(960px, calc(100% - 40px)); max-width: none; max-height: 90dvh; padding: 0; border: 1px solid #ffffffb3; border-radius: 24px; background: #faf7ff; color: #261a34; box-shadow: 0 30px 100px #100e1540; overscroll-behavior: contain; }
+.service-detail-dialog::backdrop { background: #100e15b3; backdrop-filter: blur(6px); }
+.service-detail-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; z-index: 2; padding: 14px 24px; background: #faf7fff5; border-bottom: 1px solid #6d28f018; }
+.service-detail-toolbar > span { font-size: 10px; letter-spacing: .14em; color: #8d6ba5; }
+.service-detail-toolbar button { padding: 9px 16px; border: 1px solid #6d28f025; border-radius: 999px; background: #fff; color: #613095; font: inherit; font-size: 12px; cursor: pointer; }
+.service-detail-image { display: block; width: 100%; height: 240px; object-fit: cover; }
+.service-detail-body { padding: 40px clamp(24px, 6vw, 72px); }
+.experience .service-detail-body h2 { font-size: clamp(30px, 5vw, 52px); margin: 0 0 24px; line-height: 1.1; }
+.service-detail-intro { font-size: 18px; color: #42334d; }
+.service-detail-fit { color: #7a6885; font-size: 14px; }
+.service-detail-body section { margin-top: 32px; padding-top: 24px; border-top: 1px solid #6d28f018; }
+.experience .service-detail-body h3 { font-size: 22px; font-weight: 500; letter-spacing: -.025em; margin: 0 0 16px; }
+.service-detail-body ul, .service-detail-body ol { padding-left: 22px; margin: 0; }
+.service-detail-body li { padding: 5px 0 5px 5px; color: #74627f; font-size: 15px; line-height: 1.7; }
+.service-detail-body li::marker { color: #9161ba; }
+.service-detail-body section p { color: #74627f; font-size: 15px; margin: 0; }
+.service-detail-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 24px clamp(24px, 6vw, 72px); background: #f0e6f9; border-top: 1px solid #6d28f018; }
+.service-detail-footer > span { font-size: 14px; color: #74627f; }
+@media (max-width: 560px) { .service-detail-dialog { width: calc(100% - 20px); max-height: 94dvh; border-radius: 18px; } .service-detail-image { height: 180px; } .service-detail-body { padding: 28px 24px; } .service-detail-intro { font-size: 16px; } }
