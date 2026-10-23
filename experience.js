@@ -3,7 +3,6 @@
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const toggle = document.getElementById('motion-toggle');
   let userPaused = false;
-  let orbitVisible = true;
   const running = new Set();
   const activeHover = new Map();
   const motion = window.Motion;
@@ -17,13 +16,9 @@
     return control;
   }
 
-  let orbit;
 
   function syncMotion() {
     const paused = userPaused || reducedMotion.matches;
-    if (!paused && motion && !orbit) {
-      orbit = motion.animate('.orbital-tilt', { rotateY: [0, 360] }, { duration: 28, repeat: Infinity, ease: 'linear' });
-    }
     document.body.classList.toggle('motion-paused', paused || document.hidden);
     toggle.setAttribute('aria-pressed', String(paused));
     toggle.innerHTML = reducedMotion.matches
@@ -37,10 +32,6 @@
       else if (document.hidden) control.pause();
       else control.play();
     });
-    if (orbit) {
-      if (paused || document.hidden || !orbitVisible) orbit.pause();
-      else orbit.play();
-    }
     if (paused) {
       activeHover.forEach(control => { control.stop(); running.delete(control); });
       activeHover.clear();
@@ -59,7 +50,6 @@
     animate('.hero-eyebrow, .hero-lede, .hero-actions, .hero-youtube', { y: [20, 0], opacity: [0, 1] }, {
       duration: .8, delay: motion.stagger(.1, { startDelay: .3 }), ease: [.16, 1, .3, 1],
     });
-    animate('.hero-art', { scale: [.8, 1], opacity: [0, 1] }, { duration: 1.5, ease: [.16, 1, .3, 1] });
   }
 
   const observer = new IntersectionObserver(entries => {
@@ -96,14 +86,6 @@
     }, { threshold: .35 });
     impactObserver.observe(impactGrid);
   }
-
-  new IntersectionObserver(([entry]) => {
-    orbitVisible = entry.isIntersecting;
-    if (orbit) {
-      if (orbitVisible && canAnimate() && !document.hidden) orbit.play();
-      else orbit.pause();
-    }
-  }).observe(document.querySelector('.hero-art'));
 
   function hoverAnimation(el, frames) {
     const previous = activeHover.get(el);
