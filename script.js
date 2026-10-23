@@ -377,3 +377,20 @@ document.addEventListener("keydown", (event) => {
   closeDrawer();
   [donateModal, contactModal].forEach((modal) => toggleModal(modal, false));
 });
+
+// Keep only the mobile menu control visible once the visitor leaves the top.
+(() => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const mobile = window.matchMedia('(max-width: 860px)');
+  let scheduled = false;
+  function update() {
+    header.classList.toggle('is-mobile-scrolled', mobile.matches && window.scrollY > 48);
+    scheduled = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  mobile.addEventListener('change', update);
+  update();
+})();

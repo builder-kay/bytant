@@ -872,3 +872,11 @@ body.service-detail-open { overflow: hidden; }
 
 .service-visual img { user-select: none; -webkit-user-drag: none; }
 .service-slider.is-ready .service-deck, .experience #products .product-viewport { -webkit-user-select: none; }
+
+@media (max-width: 860px) {
+  .experience .site-header .brand { transition: opacity 200ms ease, transform 200ms ease, visibility 200ms; }
+  .experience .site-header.is-mobile-scrolled { pointer-events: none; }
+  .experience .site-header.is-mobile-scrolled .brand,
+  .experience .site-header.is-mobile-scrolled .nav-actions { opacity: 0; visibility: hidden; transform: translateY(-8px); pointer-events: none; }
+  .experience .site-header.is-mobile-scrolled .menu-toggle { pointer-events: auto; background: #242124; color: #fff; border-color: #ffffff30; box-shadow: 0 4px 16px #100e1520; }
+}
