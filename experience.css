@@ -20,8 +20,8 @@
 .experience .site-header { position: absolute; inset: 0 0 auto; width: min(1440px, 100%); max-width: none; margin: auto; border: 0; border-bottom: 1px solid #2516381c; border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; padding: 22px 48px; gap: 30px; }
 .experience .brand { display: flex; align-items: center; gap: 10px; height: auto; max-width: none; padding: 0; border: 0; border-radius: 0; background: #ffffff; box-shadow: none; }
 .experience .brand .brand-logo { width: 140px; height: 72px; max-width: none; object-fit: cover; filter: none; mix-blend-mode: multiply; }
-.experience .nav-links { gap: 22px; }
-.experience .nav-links a, .experience .nav-links button { color: #655d70; font-size: 12px; padding: 8px 0; background: transparent; }
+.experience .nav-links { gap: 12px; }
+.experience .nav-links a, .experience .nav-links button { color: #655d70; font-size: 15px; font-weight: 600; padding: 10px 12px; border-radius: 8px; white-space: nowrap; background: transparent; transition: color 220ms ease, background-color 220ms ease, transform 220ms ease; }
 .experience .nav-links a:hover, .experience .nav-links a.is-active { color: #c3ff7e; background: none; box-shadow: none; }
 .experience .nav-links a[href='#home'], .experience .nav-links a[href='#culture'], .experience .nav-links button { display: none; }
 .experience .primary-btn, .experience .ghost-btn { min-height: 52px; border-radius: 6px; font-size: 13px; font-weight: 600; padding: 0 23px; gap: 26px; box-shadow: none; }
@@ -350,4 +350,26 @@
 @media (min-width: 861px) {
   .experience .nav-links a { color: #ffffff; text-shadow: 0 1px 8px #100e15; }
   .experience .nav-links a:hover, .experience .nav-links a.is-active { color: #e4ccff; }
+}
+
+/* Larger navigation with a soft lavender hover and animated underline. */
+.experience .nav-links a:hover,
+.experience .nav-links a:focus-visible,
+.experience .nav-links a.is-active {
+  color: #e4ccff;
+  background: #b69aff24;
+  transform: translateY(-2px);
+}
+.experience .nav-links a::after {
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  background: #d7b8ff;
+  transform-origin: left;
+}
+.experience .nav-links a:hover::after,
+.experience .nav-links a:focus-visible::after,
+.experience .nav-links a.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
