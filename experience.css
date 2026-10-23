@@ -440,3 +440,7 @@
   width: 100%;
   margin-left: 0;
 }
+
+/* Bring the flag closer to the introduction above it. */
+.experience #who-we-are { padding-bottom: clamp(32px, 4vw, 56px); }
+.experience #who-we-are .section-heading { margin-bottom: 0; }
