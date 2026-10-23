@@ -444,3 +444,35 @@
 /* Bring the flag closer to the introduction above it. */
 .experience #who-we-are { padding-bottom: clamp(32px, 4vw, 56px); }
 .experience #who-we-are .section-heading { margin-bottom: 0; }
+
+/* Full-width, centered introductions with supporting copy underneath. */
+.experience #who-we-are .about-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: center;
+}
+.experience #who-we-are .section-heading,
+.experience #who-we-are .about-prose,
+.experience #what-we-do .capabilities-intro,
+.experience #what-we-do .section-heading {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+}
+.experience #who-we-are .section-heading > p,
+.experience #what-we-do .section-heading > p { max-width: none; }
+.experience #who-we-are h2,
+.experience #what-we-do h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  margin: 0 0 28px;
+}
+.experience #who-we-are .section-lead,
+.experience #what-we-do .section-lead {
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  line-height: 1.4;
+  margin: 0 0 24px;
+}
+.experience .section-lead em { color: #6d28f0; font-style: normal; }
+.experience #who-we-are .about-prose p { margin: 0; }
+.experience #who-we-are .about-prose p + p { margin-top: 20px; }
