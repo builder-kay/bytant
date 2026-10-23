@@ -373,3 +373,54 @@
   opacity: 1;
   transform: scaleX(1);
 }
+
+/* Breathing room: distinct sections, compact ideas, comfortable reading. */
+.experience .section:not(.hero) {
+  width: min(1200px, calc(100% - 96px));
+  padding-block: clamp(100px, 10vw, 160px);
+}
+.experience .section-heading { max-width: 720px; margin-bottom: 48px; }
+.experience .section-heading h2 { margin-bottom: 28px; }
+.experience .section-heading > p:not(.eyebrow),
+.experience .about-prose, .how-we-work-intro p:last-child {
+  max-width: 48ch;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.experience .about-prose p + p { margin-top: 28px; }
+.about-intro { gap: clamp(48px, 8vw, 120px); align-items: center; }
+.capabilities-intro { max-width: 800px; }
+.capability-grid { gap: 28px; }
+.capability-card { min-height: 270px; padding: 36px; }
+.capability-meta { margin-bottom: 48px; }
+.capability-card p { max-width: 30ch; line-height: 1.8; }
+.work-with-us { margin-top: 88px; padding: clamp(32px, 5vw, 64px); }
+.experience .work-with-us h3 { font-size: clamp(28px, 3.2vw, 44px); }
+.experience .product-copy { padding: 40px; }
+.experience .product-copy .product-outcome { font-size: 19px; line-height: 1.6; max-width: 30ch; }
+.process-grid { gap: 28px; }
+.process-card { padding: 36px; min-height: 245px; }
+.process-card p { line-height: 1.8; }
+.experience .identity-grid { gap: 28px; margin-top: 56px; }
+.experience .identity-card { padding: 36px; }
+.experience .identity-card p { font-size: 14px; line-height: 1.8; }
+.experience .services-actions { margin-top: 36px; gap: 16px; }
+.experience .ghana-divider + .about-section { padding-top: clamp(100px, 10vw, 160px); }
+@media (max-width: 860px) {
+  .experience .section:not(.hero) { width: calc(100% - 48px); padding-block: 88px; }
+  .about-intro { gap: 36px; }
+  .capability-grid, .process-grid, .experience .identity-grid { gap: 20px; }
+  .capability-card, .process-card, .experience .identity-card { padding: 28px; }
+  .work-with-us { margin-top: 64px; }
+}
+@media (max-width: 560px) {
+  .experience .section:not(.hero) { padding-block: 72px; }
+  .experience .section-heading { margin-bottom: 36px; }
+  .experience .section-heading > p:not(.eyebrow), .experience .about-prose { font-size: 15px; }
+  .capability-card, .process-card { min-height: 0; }
+  .capability-meta, .process-card > span { margin-bottom: 32px; }
+  .experience .product-copy { padding: 24px 16px; }
+  .experience .product-copy .product-outcome { font-size: 17px; }
+  .experience .identity-grid { grid-template-columns: 1fr; }
+  .experience .final-call h2 { font-size: 11vw; }
+}
