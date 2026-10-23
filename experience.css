@@ -767,3 +767,20 @@
 @media (max-width: 560px) {
   .experience #open-source .identity-card { border-radius: 20px; padding: 26px 22px; }
 }
+
+/* A connected workflow, read from the first brief to the next iteration. */
+.build-workflow { list-style: none; padding: 0; margin: 8px auto 0; width: min(100%, 760px); display: grid; gap: 0; counter-reset: none; }
+.workflow-step { position: relative; display: flex; align-items: center; flex-direction: column; padding-bottom: 44px; }
+.workflow-step:not(:last-child)::after { content: ''; position: absolute; top: 44px; bottom: 0; left: 50%; width: 2px; background: linear-gradient(#b79bd7, #d4bde9); z-index: 0; }
+.workflow-number { display: grid; place-items: center; position: relative; z-index: 2; width: 44px; height: 44px; border: 1px solid #c6a6e2; border-radius: 50%; background: #f8f2ff; color: #7746a7; font: 600 12px 'Space Grotesk', sans-serif; box-shadow: 0 0 0 7px #ecdcfa; }
+.workflow-node { position: relative; z-index: 1; width: 100%; margin-top: 20px; padding: 28px 24px; border: 1px solid #ffffffc9; border-radius: 22px; background: #faf7ff; text-align: center; transition: border-color .25s, box-shadow .25s; }
+.workflow-node:hover { border-color: #bf9cde; box-shadow: 0 8px 30px #4925670c; }
+.workflow-node > i { display: block; margin-bottom: 16px; color: #8455b1; font-size: 23px; }
+.workflow-label { color: #8b719d; font-size: 9px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+.experience .workflow-node h3 { margin: 10px 0 14px; font-size: clamp(22px, 2.8vw, 30px); font-weight: 500; letter-spacing: -.035em; }
+.experience .workflow-node p { margin: 0 auto; max-width: 48ch; color: #75657f; font-size: 14px; line-height: 1.8; }
+.workflow-output { display: inline-block; margin-top: 22px; padding: 8px 14px; border: 1px solid #6d28f014; border-radius: 999px; background: #f0e7f9; color: #78528f; font-size: 10px; }
+.workflow-step:last-child { padding-bottom: 0; }
+.experience .workflow-loop { max-width: 48ch; margin: -12px auto 0; color: #80648f; font-size: 12px; line-height: 1.8; }
+.experience #mission .working-principles { margin-top: 0; }
+@media (max-width: 560px) { .workflow-node { padding: 26px 20px; } .workflow-step { padding-bottom: 36px; } }
