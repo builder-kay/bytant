@@ -377,7 +377,7 @@
 /* Breathing room: distinct sections, compact ideas, comfortable reading. */
 .experience .section:not(.hero) {
   width: min(1200px, calc(100% - 96px));
-  padding-block: clamp(100px, 10vw, 160px);
+  padding-block: clamp(56px, 5vw, 80px);
 }
 .experience .section-heading { max-width: 720px; margin-bottom: 48px; }
 .experience .section-heading h2 { margin-bottom: 28px; }
@@ -405,16 +405,16 @@
 .experience .identity-card { padding: 36px; }
 .experience .identity-card p { font-size: 14px; line-height: 1.8; }
 .experience .services-actions { margin-top: 36px; gap: 16px; }
-.experience .ghana-divider + .about-section { padding-top: clamp(100px, 10vw, 160px); }
+.experience .ghana-divider + .about-section { padding-top: clamp(48px, 5vw, 72px); }
 @media (max-width: 860px) {
-  .experience .section:not(.hero) { width: calc(100% - 48px); padding-block: 88px; }
+  .experience .section:not(.hero) { width: calc(100% - 48px); padding-block: 56px; }
   .about-intro { gap: 36px; }
   .capability-grid, .process-grid, .experience .identity-grid { gap: 20px; }
   .capability-card, .process-card, .experience .identity-card { padding: 28px; }
   .work-with-us { margin-top: 64px; }
 }
 @media (max-width: 560px) {
-  .experience .section:not(.hero) { padding-block: 72px; }
+  .experience .section:not(.hero) { padding-block: 44px; }
   .experience .section-heading { margin-bottom: 36px; }
   .experience .section-heading > p:not(.eyebrow), .experience .about-prose { font-size: 15px; }
   .capability-card, .process-card { min-height: 0; }
