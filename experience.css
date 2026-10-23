@@ -338,3 +338,16 @@
 .capability-card:hover h3 .arrow-icon { color: #6d28f0; }
 .experience .primary-btn { color: #15101f; }
 .experience .product-dot.is-active, .reading-progress, .status-dot { background: #6d28f0; }
+
+/* High contrast copy over the hero photograph. */
+.experience .hero { --text: #ffffff; --muted: #f1eaf8; color: var(--text); }
+.experience .hero h1 { color: #ffffff; text-shadow: 0 2px 18px #100e1580; }
+.experience .hero .title-accent { color: #d7b8ff; }
+.experience .hero-lede, .experience .hero-youtube { color: #ffffff; text-shadow: 0 1px 8px #100e15; }
+.experience .hero-youtube i { color: #d7b8ff; }
+.experience .hero .ghost-btn { color: #ffffff; border-color: #ffffff99; background: #100e154d; }
+.experience .hero .ghost-btn:hover { background: #100e1580; border-color: #ffffff; }
+@media (min-width: 861px) {
+  .experience .nav-links a { color: #ffffff; text-shadow: 0 1px 8px #100e15; }
+  .experience .nav-links a:hover, .experience .nav-links a.is-active { color: #e4ccff; }
+}
