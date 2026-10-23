@@ -3,7 +3,7 @@
   --text: #21192e; --muted: #655d70; --violet: #b69aff; --line: #25163820;
   --panel: #faf8fd; --panel-strong: #f3eef9; --shadow: none;
   --brand-gradient: linear-gradient(120deg, #9566ff, #b496ff);
-  background: #ffffff; font-family: 'DM Sans', sans-serif;
+  background: #ECDCFA; font-family: 'DM Sans', sans-serif;
 }
 .experience::before, .experience .motion-field { display: none; }
 .experience ::selection { background: #b9f66b; color: #100e15; }
@@ -121,8 +121,8 @@
 .brands-heading > p { max-width: 365px; margin: 0 0 4px; color: var(--muted); font-size: 14px; }
 .brands-marquee { position: relative; width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .brands-marquee::before, .brands-marquee::after { content: ''; position: absolute; z-index: 1; top: 0; bottom: 0; width: min(11vw, 150px); pointer-events: none; }
-.brands-marquee::before { left: 0; background: linear-gradient(90deg, #ffffff, transparent); }
-.brands-marquee::after { right: 0; background: linear-gradient(-90deg, #ffffff, transparent); }
+.brands-marquee::before { left: 0; background: linear-gradient(90deg, #ECDCFA, transparent); }
+.brands-marquee::after { right: 0; background: linear-gradient(-90deg, #ECDCFA, transparent); }
 .brands-track, .brand-set { display: flex; width: max-content; align-items: center; }
 .brands-track { animation: brands-flow 34s linear infinite; will-change: transform; }
 .brands-marquee:hover .brands-track { animation-play-state: paused; }
