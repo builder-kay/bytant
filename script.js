@@ -245,29 +245,33 @@ function setupProductCarousel() {
   const dotsContainer = document.getElementById("product-dots");
   if (!track || !dotsContainer) return;
 
-  const slides = Array.from(track.querySelectorAll(".product-card"));
-  if (!slides.length) return;
+  const allSlides = Array.from(track.querySelectorAll(".product-card"));
+  if (!allSlides.length) return;
+  let slides = allSlides;
 
   let index = 0;
 
-  const dots = slides.map((_, slideIndex) => {
-    const dot = document.createElement("button");
-    dot.className = "product-dot";
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Show product ${slideIndex + 1}`);
-    dot.addEventListener("click", () => {
-      index = slideIndex;
-      update();
+  let dots = [];
+  function rebuildDots() {
+    dotsContainer.replaceChildren();
+    dots = slides.map((slide, slideIndex) => {
+      const dot = document.createElement('button');
+      dot.className = 'product-dot';
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show ${slide.querySelector('h3').textContent}`);
+      dot.addEventListener('click', () => { index = slideIndex; update(); });
+      dotsContainer.appendChild(dot);
+      return dot;
     });
-    dotsContainer.appendChild(dot);
-    return dot;
-  });
+  }
+  rebuildDots();
 
   function update() {
     track.style.transform = `translateX(-${index * 100}%)`;
-    slides.forEach((slide, slideIndex) => {
-      slide.inert = slideIndex !== index;
-      slide.setAttribute('aria-hidden', String(slideIndex !== index));
+    allSlides.forEach(slide => {
+      const active = slide === slides[index];
+      slide.inert = !active;
+      slide.setAttribute('aria-hidden', String(!active));
     });
     dots.forEach((dot, dotIndex) => {
       dot.classList.toggle("is-active", dotIndex === index);
@@ -276,6 +280,7 @@ function setupProductCarousel() {
   }
 
   function move(direction) {
+    if (slides.length < 2) return;
     index = (index + direction + slides.length) % slides.length;
     update();
   }
@@ -352,7 +357,32 @@ function setupProductCarousel() {
     }
   }, { passive: false });
 
-  update();
+  const filterGroup = document.querySelector('.project-filters');
+  const filters = [...document.querySelectorAll('[data-project-filter]')];
+  const status = document.querySelector('.project-filter-status');
+  const empty = document.querySelector('.project-empty');
+  const carousel = track.closest('.product-carousel');
+  function filterProjects(category) {
+    resetDrag();
+    wheelDistance = 0;
+    wheelUsed = false;
+    clearTimeout(wheelTimer);
+    slides = allSlides.filter(slide => category === 'all' || (slide.dataset.services || '').split(' ').includes(category));
+    allSlides.forEach(slide => { slide.hidden = !slides.includes(slide); });
+    index = 0;
+    rebuildDots();
+    carousel.hidden = slides.length === 0;
+    if (empty) empty.hidden = slides.length !== 0;
+    if (prev) prev.hidden = slides.length < 2;
+    if (next) next.hidden = slides.length < 2;
+    dotsContainer.hidden = slides.length < 2;
+    filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.projectFilter === category)));
+    if (status) status.textContent = `${slides.length} ${slides.length === 1 ? 'project' : 'projects'}`;
+    update();
+  }
+  filters.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.projectFilter)));
+  if (filterGroup) filterGroup.hidden = false;
+  filterProjects('all');
 }
 
 setupProductCarousel();

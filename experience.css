@@ -932,3 +932,14 @@ body.service-detail-open { overflow: hidden; }
 /* Allow the longer hero statement to wrap within every screen size. */
 .experience .hero .title-line { width: auto; max-width: 100%; overflow-wrap: normal; }
 .experience .hero .title-accent { font-size: .72em; line-height: 1.15; }
+
+/* Filter the portfolio by service without changing the carousel controls. */
+.project-filters { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; max-width: 940px; margin: 28px auto 16px; }
+.project-filters[hidden], .experience .product-carousel[hidden], .experience #products .product-card[hidden], .experience #products .carousel-control[hidden], .experience #products .product-dots[hidden], .project-empty[hidden] { display: none; }
+.project-filters button { padding: 11px 18px; min-height: 44px; border: 1px solid #6d28f025; border-radius: 999px; background: #ffffff50; color: #75617f; font: 500 12px 'DM Sans',sans-serif; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.project-filters button:hover { background: #ffffffa0; border-color: #a982ce; }
+.project-filters button[aria-pressed='true'] { background: #261a34; color: #fff; border-color: #261a34; }
+.experience .project-filter-status { margin: 16px auto 0; font-size: 11px; color: #8a719b; }
+.experience .project-empty { padding: 40px 24px; margin: 28px auto 0; max-width: 700px; border: 1px solid #ffffff80; border-radius: 20px; background: #ffffff40; color: #75617f; font-size: 15px; }
+.project-empty button { padding: 0; border: 0; background: transparent; color: #6d28f0; text-decoration: underline; font: inherit; cursor: pointer; }
+@media(max-width: 560px) { .project-filters { gap: 8px; } .project-filters button { padding: 10px 13px; font-size: 11px; } }

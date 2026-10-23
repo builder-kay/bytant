@@ -239,14 +239,25 @@
         <h2>Showcase <em>Projects</em></h2>
         <p>View our showcase projects and explore what we've built.</p>
       </div>
-      <div class="product-carousel reveal" aria-label="Bytant products carousel">
+      <div class="project-filters" role="group" aria-label="Filter projects by service" hidden>
+        <button type="button" data-project-filter="all" aria-pressed="true">All projects</button>
+        <button type="button" data-project-filter="web" aria-pressed="false">Web & Mobile</button>
+        <button type="button" data-project-filter="ai" aria-pressed="false">AI Solutions</button>
+        <button type="button" data-project-filter="data" aria-pressed="false">Data Science</button>
+        <button type="button" data-project-filter="security" aria-pressed="false">Cybersecurity</button>
+        <button type="button" data-project-filter="design" aria-pressed="false">UI/UX Design</button>
+        <button type="button" data-project-filter="graphic" aria-pressed="false">Graphic Design</button>
+      </div>
+      <p class="project-filter-status" role="status" aria-live="polite"></p>
+      <p class="project-empty" hidden>No projects to show for this service yet. Explore another category or <button type="button" data-open-contact>tell us about your idea</button>.</p>
+      <div class="product-carousel reveal" aria-label="Bytant showcase projects">
         <div class="carousel-shell">
-          <button class="carousel-control" id="product-prev" type="button" aria-label="Previous product">
+          <button class="carousel-control" id="product-prev" type="button" aria-label="Previous project">
             <span>Prev</span>
           </button>
           <div class="product-viewport">
             <div class="product-track" id="product-track">
-              <article class="product-card">
+              <article class="product-card" data-services="web ai">
                 <a class="product-shot" href="https://govflowgh.vercel.app/" target="_blank" rel="noopener">
                   <img loading="lazy" decoding="async" src="assets/img/products/govflow.png" alt="Screenshot of the GovFlow homepage">
                 </a>
@@ -257,7 +268,7 @@
                   <a href="https://govflowgh.vercel.app/" target="_blank" rel="noopener">Visit homepage</a>
                 </div>
               </article>
-              <article class="product-card">
+              <article class="product-card" data-services="web ai">
                 <a class="product-shot" href="https://apomudentriage.help/" target="_blank" rel="noopener">
                   <img loading="lazy" decoding="async" src="assets/img/products/apomuden-triage.png" alt="Screenshot of the Apomuden Triage homepage">
                 </a>
@@ -268,7 +279,7 @@
                   <a href="https://apomudentriage.help/" target="_blank" rel="noopener">Visit homepage</a>
                 </div>
               </article>
-              <article class="product-card">
+              <article class="product-card" data-services="web">
                 <a class="product-shot" href="https://cribafrica.space/" target="_blank" rel="noopener">
                   <img loading="lazy" decoding="async" src="assets/img/products/crib-africa.png" alt="Screenshot of the Crib Africa homepage">
                 </a>
@@ -281,11 +292,11 @@
               </article>
             </div>
           </div>
-          <button class="carousel-control" id="product-next" type="button" aria-label="Next product">
+          <button class="carousel-control" id="product-next" type="button" aria-label="Next project">
             <span>Next</span>
           </button>
         </div>
-        <div class="product-dots" id="product-dots" aria-label="Product carousel pagination"></div>
+        <div class="product-dots" id="product-dots" aria-label="Project carousel pagination"></div>
       </div>
     </section>
 
