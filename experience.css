@@ -34,7 +34,7 @@
 .experience .hero { min-height: 790px; height: min(940px, 100svh); max-height: none; padding-top: 150px; padding-bottom: 115px; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 0; }
 .experience .hero::before {
   background:
-    linear-gradient(#100e1566, #100e1580),
+    linear-gradient(#100e1599, #100e15b3),
     url('assets/img/bytant-team-hero.webp') 60% center / cover no-repeat;
 }
 .experience .hero::after { display: none; }
@@ -301,7 +301,7 @@
   .hero-art { display: none; }
   .experience .hero::before {
     background:
-    linear-gradient(#100e1566, #100e1580),
+    linear-gradient(#100e1599, #100e15b3),
     url('assets/img/bytant-team-hero.webp') 63% center / cover no-repeat;
   }
   .orbital-system { transform: translateY(35px) scale(.8); }
