@@ -300,7 +300,7 @@
   .hero-art { display: none; }
   .experience .hero::before {
     background:
-    url('assets/img/bytant-team-hero.webp') 63% bottom / auto 52% no-repeat;
+    url('assets/img/bytant-team-hero.webp') 63% center / cover no-repeat;
   }
   .orbital-system { transform: translateY(35px) scale(.8); }
   .experience .hero-youtube { margin-top: 20px; }.hero-bottom { bottom: 20px; font-size: 8px; padding-top: 17px; }
