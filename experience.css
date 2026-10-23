@@ -913,3 +913,18 @@ body.service-detail-open { overflow: hidden; }
 .experience .drawer-links a.is-active { transform: none; color: #6d28f0; background: #ffffff80; border-color: #6d28f020; }
 .experience .drawer-actions { margin-top: auto; padding-top: 24px; border-top: 1px solid #6d28f020; }
 .experience .drawer-actions .primary-btn { width: 100%; justify-content: center; border-radius: 8px; }
+
+/* Service details use almost the entire viewport. */
+.experience .service-detail-dialog {
+  width: calc(100vw - 32px);
+  height: calc(100dvh - 32px);
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+}
+.experience .service-detail-image { height: clamp(200px, 30vh, 360px); }
+.experience .service-detail-body { max-width: 1200px; margin-inline: auto; padding: 48px clamp(24px, 6vw, 80px); }
+@media (max-width: 560px) {
+  .experience .service-detail-dialog { width: calc(100vw - 12px); height: calc(100dvh - 12px); max-height: calc(100dvh - 12px); border-radius: 14px; }
+  .experience .service-detail-body { padding: 28px 24px; }
+}
