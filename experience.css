@@ -821,6 +821,7 @@
 
 /* Original white parent logo; luminance becomes transparency without redrawing. */
 .experience .site-header .brand {
+  justify-content: flex-start;
   width: 150px;
   height: 76px;
   overflow: hidden;
