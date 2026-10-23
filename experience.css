@@ -818,3 +818,27 @@
 .experience .site-footer .footer-bottom .copyright { color: #bdb5c6; }
 .experience .site-footer .social-links a { color: #e5dcec; border-color: #ffffff24; background: #ffffff08; }
 .experience .site-footer a:hover { color: #d7b8ff; }
+
+/* Original white parent logo; luminance becomes transparency without redrawing. */
+.experience .site-header .brand {
+  width: 150px;
+  height: 76px;
+  overflow: hidden;
+  background: transparent;
+  flex-shrink: 0;
+}
+.experience .site-header .brand .brand-logo {
+  width: 216px;
+  height: 173px;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: contain;
+  transform: translate(-33px, -45px);
+  align-self: flex-start;
+  filter: url('assets/img/brandkit/logo-filter.svg#white-logo');
+  mix-blend-mode: normal;
+}
+@media (max-width: 860px) {
+  .experience .site-header .brand { width: 130px; height: 66px; }
+  .experience .site-header .brand .brand-logo { width: 187px; height: 150px; transform: translate(-29px, -39px); }
+}
