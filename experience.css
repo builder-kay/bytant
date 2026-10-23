@@ -880,3 +880,12 @@ body.service-detail-open { overflow: hidden; }
   .experience .site-header.is-mobile-scrolled .nav-actions { opacity: 0; visibility: hidden; transform: translateY(-8px); pointer-events: none; }
   .experience .site-header.is-mobile-scrolled .menu-toggle { pointer-events: auto; background: #242124; color: #fff; border-color: #ffffff30; box-shadow: 0 4px 16px #100e1520; }
 }
+
+/* More breathing room for the mobile hero copy and actions. */
+@media (max-width: 860px) {
+  .experience .hero { padding-top: 170px; }
+  .experience .hero-actions { margin-top: 36px; }
+}
+@media (max-width: 560px) {
+  .experience .hero { padding-top: 160px; }
+}
