@@ -558,3 +558,57 @@
   margin-inline: auto;
   text-align: center;
 }
+
+/* Shared page rhythm: centered headings, then supporting content below. */
+.experience main > .section { text-align: center; }
+.experience .section .section-heading,
+.experience #products .section-heading,
+.experience .impact-intro,
+.experience .how-we-work-intro {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  text-align: center;
+}
+.experience .section-heading > p:not(.eyebrow),
+.experience .how-we-work-intro p:last-child {
+  max-width: 64ch;
+  margin-inline: auto;
+}
+.experience .hero {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+.experience .hero-copy { width: 100%; max-width: 1000px; text-align: center; }
+.experience .hero h1 { margin-inline: auto; }
+.experience .hero .title-line { margin-inline: auto; }
+.experience .hero-lede { margin-inline: auto; max-width: 52ch; }
+.experience .hero-actions, .experience .hero-youtube { justify-content: center; }
+.experience .impact-section,
+.experience .how-we-work-section,
+.experience .work-with-us {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+}
+.experience .how-we-work-intro { position: static; }
+.experience .working-principles { grid-column: 1; justify-content: center; }
+.experience .process-grid,
+.experience .identity-grid { grid-template-columns: minmax(0, 1fr); }
+.experience .process-card,
+.experience .identity-card { min-height: 0; text-align: center; }
+.experience .process-card > span { margin-bottom: 24px; }
+.experience .process-card p,
+.experience .identity-card p { max-width: 60ch; margin-inline: auto; }
+.experience .work-with-us h3 { max-width: none; }
+.experience .work-with-us-copy { max-width: 60ch; margin-inline: auto; }
+.experience .impact-grid { grid-template-columns: minmax(0, 1fr); }
+.experience .impact-grid article { align-items: center; border-right: 0; border-bottom: 1px solid var(--line); min-height: 130px; }
+.experience .impact-grid article:last-child { border-bottom: 0; }
+.experience .product-card { grid-template-columns: minmax(0, 1fr); background: #faf8fd; }
+.experience .product-copy { text-align: center; }
+.experience .product-copy .product-outcome { margin-inline: auto; }
+.experience .product-copy > span { color: #6d28f0; }
+.experience .services-actions { justify-content: center; }
+.experience .final-call h2 { max-width: none; margin-inline: auto; }
+.experience .final-note { align-items: center; justify-content: center; flex-wrap: wrap; }
+.experience .service-card { text-align: center; }
