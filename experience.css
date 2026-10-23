@@ -869,3 +869,6 @@ body.service-detail-open { overflow: hidden; }
 .service-detail-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 24px clamp(24px, 6vw, 72px); background: #f0e6f9; border-top: 1px solid #6d28f018; }
 .service-detail-footer > span { font-size: 14px; color: #74627f; }
 @media (max-width: 560px) { .service-detail-dialog { width: calc(100% - 20px); max-height: 94dvh; border-radius: 18px; } .service-detail-image { height: 180px; } .service-detail-body { padding: 28px 24px; } .service-detail-intro { font-size: 16px; } }
+
+.service-visual img { user-select: none; -webkit-user-drag: none; }
+.service-slider.is-ready .service-deck, .experience #products .product-viewport { -webkit-user-select: none; }

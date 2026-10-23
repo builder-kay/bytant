@@ -38,9 +38,17 @@
     select(active + (event.key === 'ArrowRight' ? 1 : -1));
   });
   const deck = slider.querySelector('.service-deck');
+  setupTouchSwipe(deck, dx => {
+    deck.classList.add('is-dragging');
+    deck.style.setProperty('--drag', `${Math.max(-180, Math.min(180, dx))}px`);
+  }, direction => {
+    deck.classList.remove('is-dragging');
+    deck.style.setProperty('--drag', '0px');
+    if (direction) select(active + direction);
+  });
   let start;
   deck.addEventListener('pointerdown', event => {
-    if (event.button !== 0 || event.target.closest('button, a')) return;
+    if (event.pointerType === 'touch' || event.button !== 0 || event.target.closest('button, a')) return;
     start = { x: event.clientX, y: event.clientY, id: event.pointerId, dx: 0 };
   });
   deck.addEventListener('pointermove', event => {

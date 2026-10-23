@@ -285,6 +285,14 @@ function setupProductCarousel() {
   if (next) next.addEventListener("click", () => move(1));
 
   const viewport = track.closest('.product-viewport');
+  setupTouchSwipe(viewport, dx => {
+    viewport.classList.add('is-dragging');
+    track.style.translate = `${Math.max(-200, Math.min(200, dx))}px 0`;
+  }, direction => {
+    viewport.classList.remove('is-dragging');
+    track.style.removeProperty('translate');
+    if (direction) move(direction);
+  });
   let drag;
   let suppressClick = false;
   const resetDrag = () => {
@@ -294,7 +302,7 @@ function setupProductCarousel() {
   };
   viewport.addEventListener('dragstart', event => event.preventDefault());
   viewport.addEventListener('pointerdown', event => {
-    if (event.button !== 0 || event.target.closest('button')) return;
+    if (event.pointerType === 'touch' || event.button !== 0 || event.target.closest('button')) return;
     suppressClick = false;
     drag = { id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0 };
   });
