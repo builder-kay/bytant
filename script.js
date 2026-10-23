@@ -48,7 +48,6 @@ function wireModal(modalId, closeId) {
   return modal;
 }
 
-const donateModal = wireModal("donate-modal", "close-donate-modal");
 const contactModal = wireModal("contact-modal", "close-contact-modal");
 
 const menuToggle = document.getElementById("menu-toggle");
@@ -87,13 +86,6 @@ if (menuToggle) {
 
 document.querySelectorAll(".drawer-links a, .drawer-brand").forEach((link) => {
   link.addEventListener("click", closeDrawer);
-});
-
-document.querySelectorAll("#help-us-btn, [data-open-help]").forEach((button) => {
-  button.addEventListener("click", () => {
-    closeDrawer();
-    toggleModal(donateModal, true);
-  });
 });
 
 document.querySelectorAll("#nav-cta-btn, [data-open-contact]").forEach((button) => {
@@ -375,7 +367,7 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   closeDrawer();
-  [donateModal, contactModal].forEach((modal) => toggleModal(modal, false));
+  toggleModal(contactModal, false);
 });
 
 // Keep only the mobile menu control visible once the visitor leaves the top.
