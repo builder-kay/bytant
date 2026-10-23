@@ -359,7 +359,6 @@ function setupProductCarousel() {
 
   const filterGroup = document.querySelector('.project-filters');
   const filters = [...document.querySelectorAll('[data-project-filter]')];
-  const status = document.querySelector('.project-filter-status');
   const empty = document.querySelector('.project-empty');
   const carousel = track.closest('.product-carousel');
   function filterProjects(category) {
@@ -377,7 +376,6 @@ function setupProductCarousel() {
     if (next) next.hidden = slides.length < 2;
     dotsContainer.hidden = slides.length < 2;
     filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.projectFilter === category)));
-    if (status) status.textContent = `${slides.length} ${slides.length === 1 ? 'project' : 'projects'}`;
     update();
   }
   filters.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.projectFilter)));
