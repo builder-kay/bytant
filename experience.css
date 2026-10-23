@@ -717,3 +717,53 @@
 @media (prefers-reduced-motion: reduce) {
   .experience .impact-grid.is-counting article { animation: none; }
 }
+
+/* Open-source principles presented as one connected, centered stack. */
+.experience #open-source .identity-grid {
+  position: relative;
+  width: min(100%, 800px);
+  margin: 44px auto 0;
+  gap: 16px;
+}
+.experience #open-source .identity-grid::before {
+  content: '';
+  position: absolute;
+  inset: 36px auto 36px 50%;
+  width: 1px;
+  background: #b995df;
+  z-index: 0;
+}
+.experience #open-source .identity-card {
+  position: relative;
+  padding: 30px clamp(22px, 4vw, 52px);
+  border: 1px solid #ffffffc9;
+  border-radius: 24px;
+  background: #faf7ff;
+  box-shadow: 0 4px 18px #45236804;
+  transition: background 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+.experience #open-source .identity-card:hover {
+  background: #fff;
+  border-color: #c6a5e7;
+  box-shadow: 0 12px 30px #4523680c;
+}
+.open-source-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 18px;
+  border: 1px solid #dcc7f3;
+  border-radius: 15px;
+  background: #eee2fc;
+  color: #7342ab;
+  font-size: 20px;
+}
+.experience #open-source .identity-card:nth-child(2) .open-source-icon { background: #e6edf9; color: #496ba0; border-color: #cfddf2; }
+.experience #open-source .identity-card:nth-child(3) .open-source-icon { background: #e6f0ed; color: #46816d; border-color: #cfe3da; }
+.experience #open-source .identity-card > span { color: #897498; font-size: 9px; font-weight: 600; letter-spacing: .15em; }
+.experience #open-source .identity-card h3 { margin: 10px 0 12px; font-size: clamp(21px, 2.5vw, 28px); font-weight: 500; letter-spacing: -.035em; }
+.experience #open-source .identity-card p { max-width: 48ch; margin: 0 auto; font-size: 14px; line-height: 1.8; color: #7a6b84; }
+@media (max-width: 560px) {
+  .experience #open-source .identity-card { border-radius: 20px; padding: 26px 22px; }
+}
