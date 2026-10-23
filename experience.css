@@ -179,7 +179,7 @@
 .inquiry-form label { display: grid; gap: 7px; color: #51435f; font-size: 11px; font-weight: 600; letter-spacing: .03em; }
 .inquiry-form input, .inquiry-form select, .inquiry-form textarea { width: 100%; padding: 12px 13px; border: 1px solid #25163820; border-radius: 7px; outline: 0; color: var(--text); background: #faf8fd; }
 .inquiry-form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #b69aff 50%), linear-gradient(135deg, #b69aff 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
-.inquiry-form option { color: #faf8fd; background: #fff; }
+.inquiry-form option { color: #261a34; background: #fff; }
 .inquiry-form input:focus, .inquiry-form select:focus, .inquiry-form textarea:focus { border-color: #b69aff; box-shadow: 0 0 0 3px #b69aff18; }
 .inquiry-form textarea { resize: vertical; }
 .inquiry-submit { width: fit-content; margin-top: 2px; }
