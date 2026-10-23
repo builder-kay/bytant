@@ -794,3 +794,10 @@
 .experience #products .is-dragging .product-track { transition: none; }
 .experience #products .product-shot img { user-select: none; -webkit-user-drag: none; }
 @media (prefers-reduced-motion: reduce) { .experience #products .product-track { transition: none; } }
+
+/* Transparent mobile navigation over the hero. */
+@media (max-width: 860px) {
+  .experience .site-header { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 0; box-shadow: none; }
+  .experience .site-header .brand { background: transparent; }
+  .experience .site-header .menu-toggle { background: #100e154d; color: #fff; border-color: #ffffff40; }
+}
