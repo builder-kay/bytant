@@ -454,21 +454,21 @@
 }
 .experience #who-we-are .section-heading,
 .experience #who-we-are .about-prose,
-.experience #what-we-do .capabilities-intro,
-.experience #what-we-do .section-heading {
+.experience #services .capabilities-intro,
+.experience #services .section-heading {
   width: 100%;
   max-width: none;
   text-align: center;
 }
 .experience #who-we-are .section-heading > p,
-.experience #what-we-do .section-heading > p { max-width: none; }
+.experience #services .section-heading > p { max-width: none; }
 .experience #who-we-are h2,
-.experience #what-we-do h2 {
+.experience #services h2 {
   font-size: clamp(3rem, 7vw, 6rem);
   margin: 0 0 28px;
 }
 .experience #who-we-are .section-lead,
-.experience #what-we-do .section-lead {
+.experience #services .section-lead {
   font-size: clamp(1.4rem, 3vw, 2.25rem);
   line-height: 1.4;
   margin: 0 0 24px;
@@ -522,3 +522,17 @@
  .experience .service-status { order: -1; flex-basis: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .service-slider.is-ready .service-card { transition: none; } }
+
+/* Let the layered deck span the viewport and follow horizontal gestures. */
+.service-slider { width: 100vw; margin-left: calc(50% - 50vw); }
+.service-slider.is-ready .service-deck { --step: clamp(120px, 19vw, 350px); touch-action: pan-y pinch-zoom; cursor: grab; }
+.service-slider.is-ready .service-card {
+  width: clamp(300px, 29vw, 420px);
+  transform: translateX(calc(-50% + var(--offset) * var(--step) + var(--drag, 0px))) translateY(calc(var(--depth) * 24px)) scale(calc(1 - var(--depth) * .095));
+}
+.service-deck.is-dragging { cursor: grabbing; user-select: none; }
+.service-slider.is-ready .service-deck.is-dragging .service-card { transition: none; }
+@media (max-width: 560px) {
+  .service-slider.is-ready .service-deck { --step: 120px; }
+  .service-slider.is-ready .service-card { width: min(320px, calc(100vw - 64px)); }
+}

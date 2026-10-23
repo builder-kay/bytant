@@ -39,17 +39,54 @@
     event.preventDefault();
     select(active + (event.key === 'ArrowRight' ? 1 : -1));
   });
+  const deck = slider.querySelector('.service-deck');
   let start;
-  slider.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'touch') start = { x: event.clientX, y: event.clientY };
+  deck.addEventListener('pointerdown', event => {
+    if (event.button !== 0 || event.target.closest('button, a')) return;
+    start = { x: event.clientX, y: event.clientY, id: event.pointerId, dx: 0 };
   });
-  slider.addEventListener('pointerup', event => {
-    if (!start) return;
+  deck.addEventListener('pointermove', event => {
+    if (!start || event.pointerId !== start.id) return;
     const dx = event.clientX - start.x;
     const dy = event.clientY - start.y;
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) select(active + (dx < 0 ? 1 : -1));
-    start = null;
+    if (!deck.classList.contains('is-dragging') && Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 10) { start = null; return; }
+    if (Math.abs(dx) > 8) {
+      deck.classList.add('is-dragging');
+      deck.setPointerCapture(event.pointerId);
+      start.dx = dx;
+      deck.style.setProperty('--drag', `${Math.max(-180, Math.min(180, dx))}px`);
+    }
   });
-  slider.addEventListener('pointercancel', () => { start = null; });
+  function finishDrag(event) {
+    if (!start || event.pointerId !== start.id) return;
+    const dx = start.dx;
+    start = null;
+    deck.classList.remove('is-dragging');
+    deck.style.setProperty('--drag', '0px');
+    if (deck.hasPointerCapture(event.pointerId)) deck.releasePointerCapture(event.pointerId);
+    if (event.type !== 'pointercancel' && Math.abs(dx) > 45) select(active + (dx < 0 ? 1 : -1));
+  }
+  deck.addEventListener('pointerup', finishDrag);
+  deck.addEventListener('pointercancel', finishDrag);
+  deck.addEventListener('lostpointercapture', finishDrag);
+  // Only consume horizontal gestures; vertical scrolling and pinch zoom stay native.
+  let wheelDistance = 0;
+  let wheelUsed = false;
+  let wheelTimer;
+  deck.addEventListener('wheel', event => {
+    if (event.ctrlKey) return;
+    const delta = event.shiftKey && !event.deltaX ? event.deltaY : event.deltaX;
+    if (!delta || (!event.shiftKey && Math.abs(event.deltaY) >= Math.abs(delta))) return;
+    event.preventDefault();
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => { wheelDistance = 0; wheelUsed = false; }, 180);
+    if (wheelUsed) return;
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? deck.clientWidth : 1;
+    wheelDistance += delta * unit;
+    if (Math.abs(wheelDistance) >= 45) {
+      select(active + (wheelDistance > 0 ? 1 : -1));
+      wheelUsed = true;
+    }
+  }, { passive: false });
   select(0);
 })();
