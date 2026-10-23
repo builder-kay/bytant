@@ -386,3 +386,13 @@ document.addEventListener("keydown", (event) => {
   mobile.addEventListener('change', update);
   update();
 })();
+
+// Keep keyboard navigation inside the open mobile menu.
+if (drawer) drawer.addEventListener('keydown', event => {
+  if (event.key !== 'Tab' || !drawer.classList.contains('is-open')) return;
+  const focusable = [...drawer.querySelectorAll('a[href], button:not([disabled])')];
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+});

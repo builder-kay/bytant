@@ -900,3 +900,16 @@ body.service-detail-open { overflow: hidden; }
   mix-blend-mode: normal;
   background: transparent;
 }
+
+/* Mobile navigation uses the current brand and the desktop link hierarchy. */
+.experience .mobile-drawer { width: min(90vw, 380px); padding: 24px; gap: 28px; background: #ecdcfa; border-left: 1px solid #ffffff80; }
+.experience .drawer-header { padding-bottom: 20px; border-bottom: 1px solid #6d28f020; }
+.experience .drawer-brand img { width: 145px; height: 72px; max-width: none; padding: 0; border: 0; border-radius: 0; background: transparent; filter: brightness(0) saturate(100%); opacity: .85; object-fit: contain; }
+.experience .drawer-close { background: #ffffff70; border-color: #6d28f020; color: #613295; }
+.experience .drawer-links { gap: 8px; padding-top: 0; }
+.experience .drawer-links a { min-height: 48px; padding: 12px 16px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: #51435f; font: 600 15px 'DM Sans', sans-serif; transition: background .2s, color .2s, border-color .2s; }
+.experience .drawer-links a:hover,
+.experience .drawer-links a:focus-visible,
+.experience .drawer-links a.is-active { transform: none; color: #6d28f0; background: #ffffff80; border-color: #6d28f020; }
+.experience .drawer-actions { margin-top: auto; padding-top: 24px; border-top: 1px solid #6d28f020; }
+.experience .drawer-actions .primary-btn { width: 100%; justify-content: center; border-radius: 8px; }
