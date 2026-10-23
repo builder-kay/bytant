@@ -1,7 +1,6 @@
 (() => {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-  const toggle = document.getElementById('motion-toggle');
   let userPaused = false;
   const running = new Set();
   const activeHover = new Map();
@@ -20,13 +19,6 @@
   function syncMotion() {
     const paused = userPaused || reducedMotion.matches;
     document.body.classList.toggle('motion-paused', paused || document.hidden);
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.innerHTML = reducedMotion.matches
-      ? 'Reduced motion on'
-      : paused
-        ? 'Resume motion <i class="fa-solid fa-play" aria-hidden="true"></i>'
-        : 'Pause motion <i class="fa-solid fa-pause" aria-hidden="true"></i>';
-    toggle.disabled = reducedMotion.matches;
     running.forEach(control => {
       if (paused) control.complete();
       else if (document.hidden) control.pause();
@@ -38,7 +30,6 @@
       document.querySelectorAll('.primary-btn, .ghost-btn, .value-grid article, .identity-card, .venture-card').forEach(el => el.style.removeProperty('transform'));
     }
   }
-  toggle.addEventListener('click', () => { userPaused = !userPaused; syncMotion(); });
   reducedMotion.addEventListener('change', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   syncMotion();
