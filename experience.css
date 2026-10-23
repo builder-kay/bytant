@@ -536,3 +536,25 @@
   .service-slider.is-ready .service-deck { --step: 120px; }
   .service-slider.is-ready .service-card { width: min(320px, calc(100vw - 64px)); }
 }
+
+/* Keep the services introduction centered independently of slider sizing. */
+.experience #services > .capabilities-intro {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+}
+.experience #services .capabilities-intro .section-heading {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  text-align: center;
+}
+.experience #services .capabilities-intro h2,
+.experience #services .capabilities-intro .section-lead {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  text-align: center;
+}
