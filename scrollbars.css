@@ -1,0 +1,9 @@
+/* Shared scrollbars for pages, drawers, and modal content. */
+:root { --scroll-track: #f0e5fa; --scroll-thumb: #b28ad4; --scroll-hover: #8959b4; }
+* { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: var(--scroll-track); border-radius: 999px; }
+*::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border: 2px solid var(--scroll-track); border-radius: 999px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--scroll-hover); }
+*::-webkit-scrollbar-corner { background: var(--scroll-track); }
+@media (forced-colors: active) { * { scrollbar-color: auto; } }
