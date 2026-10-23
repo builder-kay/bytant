@@ -14,3 +14,7 @@ Scene: two boys and three girls with natural varied hairstyles, focused and warm
 Composition: wide editorial photograph at slightly elevated eye level; show the round tabletop and the group clearly, keep faces mainly in the upper middle/right of frame, allow quieter darker studio space in the left third for a website headline. Keep the people large enough to read as a team. This is just the photograph, no website interface, no overlaid headline.
 Lighting: cinematic but believable warm window side light on faces, subtle violet practical lights in the studio, charcoal and deep plum environment suited to a dark violet website. Subjects should be well-exposed and clearly visible; dark gradients will be applied separately in CSS.
 Constraints: professional age-appropriate casual shirts and trousers, no watermark, no extra text outside the shirt print, no exaggerated futuristic effects.
+
+## Slogan removal edit
+
+Built-in image generation edit: Remove only the words AFRICA BUILDS BRIGHTER SOLUTIONS and the small purple underline from the left wall. Fill with matching dark studio wall texture and lighting. Preserve the people, shirts, table, equipment, plants, shelves, Ghana map, whiteboard, and landscape composition.
