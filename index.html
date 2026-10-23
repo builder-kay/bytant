@@ -65,7 +65,6 @@
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#home">Home</a>
       <a href="#who-we-are" data-nav="about">Who We Are</a>
-      <a href="#what-we-do">What We Do</a>
       <a href="#products">Products</a>
       <a href="#services">Services</a>
       <a href="#open-source">Open Source</a>
@@ -92,7 +91,6 @@
     <nav class="drawer-links" aria-label="Mobile navigation">
       <a href="#home">Home</a>
       <a href="#who-we-are" data-nav="about">Who We Are</a>
-      <a href="#what-we-do">What We Do</a>
       <a href="#products">Products</a>
       <a href="#services">Services</a>
       <a href="#open-source">Open Source</a>
@@ -179,24 +177,47 @@
     </div>
 
 
-    <section id="what-we-do" class="section about-section capabilities-section" aria-labelledby="what-we-do-title">
+    <section id="services" class="section about-section capabilities-section" aria-labelledby="what-we-do-title">
+      <span id="what-we-do" class="services-anchor" aria-hidden="true"></span>
       <div class="capabilities-intro">
         <div class="section-heading reveal">
           <h2 id="what-we-do-title">What We Do</h2>
-          <p class="section-lead">We build technology for <em>Africa and beyond.</em></p>
+          <p class="section-lead">Our services. Built around <em>your next idea.</em></p>
         </div>
       </div>
 
-      <div class="capability-grid">
-        <article class="capability-card reveal"><div class="capability-meta"><span>01</span><i class="fa-solid fa-mobile-screen-button"></i></div><h3>Web &amp; Mobile Products</h3><p>Websites and apps built around everyday needs.</p></article>
-        <article class="capability-card reveal"><div class="capability-meta"><span>02</span><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>AI Solutions</h3><p>Practical AI for smarter services and simpler workflows.</p></article>
-        <article class="capability-card reveal"><div class="capability-meta"><span>03</span><i class="fa-solid fa-chart-line"></i></div><h3>Data Science</h3><p>Turn data into clear decisions and useful forecasts.</p></article>
-        <article class="capability-card reveal"><div class="capability-meta"><span>04</span><i class="fa-solid fa-shield-halved"></i></div><h3>Cybersecurity</h3><p>Protect your people, platforms, and business.</p></article>
-        <article class="capability-card reveal"><div class="capability-meta"><span>05</span><i class="fa-solid fa-pen-ruler"></i></div><h3>UI/UX &amp; Product Design</h3><p>Clear, accessible experiences grounded in user research.</p></article>
-        <article class="capability-card reveal"><div class="capability-meta"><span>06</span><i class="fa-solid fa-bezier-curve"></i></div><h3>Graphic Design</h3><p>Visual identities and creative assets that make ideas stand out.</p></article>
+      <div class="service-slider" role="region" aria-roledescription="carousel" aria-label="Our services" tabindex="0">
+        <div class="service-deck">
+          <article class="service-card" data-service="0" role="group" aria-roledescription="slide" aria-label="1 of 6">
+            <div class="service-visual service-visual--web" aria-hidden="true"><span class="service-visual-ring"></span><i class="fa-solid fa-mobile-screen-button"></i><span class="service-visual-label">BYTANT / 01</span></div>
+            <div class="service-card-copy"><span class="service-category">OUR SERVICES / 01</span><h3>Web &amp; Mobile Products</h3><p>Websites and apps built around everyday needs.</p><span class="service-tags">Websites / Apps / Platforms</span><button class="primary-btn" type="button" data-open-contact>Let's talk</button></div>
+          </article>
+          <article class="service-card" data-service="1" role="group" aria-roledescription="slide" aria-label="2 of 6">
+            <div class="service-visual service-visual--ai" aria-hidden="true"><span class="service-visual-ring"></span><i class="fa-solid fa-wand-magic-sparkles"></i><span class="service-visual-label">BYTANT / 02</span></div>
+            <div class="service-card-copy"><span class="service-category">OUR SERVICES / 02</span><h3>AI Solutions</h3><p>Practical AI for smarter services and simpler workflows.</p><span class="service-tags">Automation / Assistants / Workflows</span><button class="primary-btn" type="button" data-open-contact>Let's talk</button></div>
+          </article>
+          <article class="service-card" data-service="2" role="group" aria-roledescription="slide" aria-label="3 of 6">
+            <div class="service-visual service-visual--data" aria-hidden="true"><span class="service-visual-ring"></span><i class="fa-solid fa-chart-line"></i><span class="service-visual-label">BYTANT / 03</span></div>
+            <div class="service-card-copy"><span class="service-category">OUR SERVICES / 03</span><h3>Data Science</h3><p>Turn data into clear decisions and useful forecasts.</p><span class="service-tags">Analytics / Forecasting / Insights</span><button class="primary-btn" type="button" data-open-contact>Let's talk</button></div>
+          </article>
+          <article class="service-card" data-service="3" role="group" aria-roledescription="slide" aria-label="4 of 6">
+            <div class="service-visual service-visual--security" aria-hidden="true"><span class="service-visual-ring"></span><i class="fa-solid fa-shield-halved"></i><span class="service-visual-label">BYTANT / 04</span></div>
+            <div class="service-card-copy"><span class="service-category">OUR SERVICES / 04</span><h3>Cybersecurity</h3><p>Protect your people, platforms, and business.</p><span class="service-tags">Security / Privacy / Resilience</span><button class="primary-btn" type="button" data-open-contact>Let's talk</button></div>
+          </article>
+          <article class="service-card" data-service="4" role="group" aria-roledescription="slide" aria-label="5 of 6">
+            <div class="service-visual service-visual--design" aria-hidden="true"><span class="service-visual-ring"></span><i class="fa-solid fa-pen-ruler"></i><span class="service-visual-label">BYTANT / 05</span></div>
+            <div class="service-card-copy"><span class="service-category">OUR SERVICES / 05</span><h3>UI/UX &amp; Product Design</h3><p>Clear, accessible experiences grounded in user research.</p><span class="service-tags">Research / Prototypes / Experiences</span><button class="primary-btn" type="button" data-open-contact>Let's talk</button></div>
+          </article>
+          <article class="service-card" data-service="5" role="group" aria-roledescription="slide" aria-label="6 of 6">
+            <div class="service-visual service-visual--graphic" aria-hidden="true"><span class="service-visual-ring"></span><i class="fa-solid fa-bezier-curve"></i><span class="service-visual-label">BYTANT / 06</span></div>
+            <div class="service-card-copy"><span class="service-category">OUR SERVICES / 06</span><h3>Graphic Design</h3><p>Visual identities and creative assets that make ideas stand out.</p><span class="service-tags">Identity / Campaigns / Creative</span><button class="primary-btn" type="button" data-open-contact>Let's talk</button></div>
+          </article>
+        </div>
+        <div class="service-controls" hidden><button type="button" data-service-prev>Previous</button><p class="service-status" aria-live="polite" aria-atomic="true"></p><button type="button" data-service-next>Next</button></div>
+        <div class="service-pagination" aria-label="Choose a service" hidden></div>
       </div>
 
-      <div id="services" class="work-with-us reveal">
+      <div class="work-with-us reveal">
         <div>
           <p class="eyebrow">Work With Us</p>
           <h3>Got a meaningful problem?<br>Let's build the right solution.</h3>
@@ -327,7 +348,7 @@
         <img loading="lazy" decoding="async" src="assets/img/brandkit/parent-logo-2-bg-nav.png" alt="Bytant Innovative Group logo">
         <div><strong>Technology imagined and built in Ghana.</strong><p>Digital products, AI systems, secure platforms, and thoughtful experiences for Africa and beyond.</p></div>
       </div>
-      <nav class="footer-links" aria-label="Footer navigation"><strong>Explore</strong><a href="#who-we-are">Who We Are</a><a href="#what-we-do">What We Do</a><a href="#products">Products</a><a href="#open-source">Open Source</a></nav>
+      <nav class="footer-links" aria-label="Footer navigation"><strong>Explore</strong><a href="#who-we-are">Who We Are</a><a href="#services">Services</a><a href="#products">Products</a><a href="#open-source">Open Source</a></nav>
       <div class="footer-contact"><strong>Start a conversation</strong><a href="mailto:teambytant@gmail.com">teambytant@gmail.com</a><a href="https://wa.me/233507410361" target="_blank" rel="noopener">WhatsApp: +233 50 741 0361</a><span>Ghana</span></div>
     </div>
     <div class="footer-bottom">
@@ -365,6 +386,7 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="service-slider.js"></script>
   <script src="assets/vendor/motion.js"></script>
   <script src="experience.js"></script>
 </body>
