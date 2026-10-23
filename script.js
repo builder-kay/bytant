@@ -132,19 +132,25 @@ if (projectInquiryForm) {
   projectInquiryForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(projectInquiryForm);
+    const field = name => String(data.get(name) || '').replace(/\r\n?/g, '\n').trim();
     const message = [
+      "*BYTANT | SERVICE INQUIRY*",
+      "",
       "Hello Bytant, I'd like to hire your team.",
       "",
-      `Person or organization: ${data.get("name")}`,
-      `Email or phone: ${data.get("contact")}`,
-      `WhatsApp contact: ${data.get("whatsapp")}`,
-      `Required service: ${data.get("projectType")}`,
+      "*CONTACT DETAILS*",
+      `*Person / Organization:* ${field("name")}`,
+      `*Email / Phone:* ${field("contact")}`,
+      `*WhatsApp:* ${field("whatsapp")}`,
       "",
-      "Service requirements:",
-      data.get("summary"),
+      "*REQUIRED SERVICE*",
+      field("projectType"),
       "",
-      "Anything else to know:",
-      data.get("additionalNotes") || "Not provided",
+      "*SERVICE REQUIREMENTS*",
+      field("summary"),
+      ...(field("additionalNotes") ? ["", "*ADDITIONAL INFORMATION*", field("additionalNotes")] : []),
+      "",
+      "Thank you. I look forward to hearing from your team.",
     ].join("\n");
     openWhatsApp(message);
   });
