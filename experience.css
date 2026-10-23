@@ -424,3 +424,19 @@
   .experience .identity-grid { grid-template-columns: 1fr; }
   .experience .final-call h2 { font-size: 11vw; }
 }
+
+/* Selected brands take the ribbon position immediately below the hero. */
+.experience #brands.brands-section {
+  width: 100%;
+  padding-block: 32px 0;
+  border-top: 0;
+}
+.experience #brands .eyebrow {
+  margin: 0 24px 24px;
+  text-align: center;
+  color: var(--muted);
+}
+.experience #brands .brands-marquee {
+  width: 100%;
+  margin-left: 0;
+}
