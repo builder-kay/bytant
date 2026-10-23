@@ -801,3 +801,20 @@
   .experience .site-header .brand { background: transparent; }
   .experience .site-header .menu-toggle { background: #100e154d; color: #fff; border-color: #ffffff40; }
 }
+
+/* Charcoal footer with a full-width surface and comfortable contrast. */
+.experience .site-footer {
+  --text: #f4f1f7;
+  --muted: #bdb5c6;
+  --line: #ffffff24;
+  width: 100%;
+  margin: 40px 0 0;
+  padding: 56px max(24px, calc((100% - 1200px) / 2)) 28px;
+  background: #242124;
+  border-top: 0;
+  color: var(--text);
+}
+.experience .site-footer .footer-brand img { background: transparent; filter: invert(1) grayscale(1); mix-blend-mode: screen; }
+.experience .site-footer .footer-bottom .copyright { color: #bdb5c6; }
+.experience .site-footer .social-links a { color: #e5dcec; border-color: #ffffff24; background: #ffffff08; }
+.experience .site-footer a:hover { color: #d7b8ff; }

@@ -61,3 +61,8 @@ footer nav { display: flex; justify-content: center; gap: 24px; margin: 20px 0; 
 @keyframes purpose-float { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-8px) rotate(-3deg); } }
 @media(max-width: 640px) { .page-header { width: calc(100% - 32px); gap: 14px; flex-wrap: wrap; } .page-header nav { order: 3; width: 100%; justify-content: center; gap: 22px; font-size: 12px; } .logo img { width: 110px; height: 56px; } .page-intro { padding-top: 48px; } .intro-copy { font-size: 15px; } .purpose-section { padding: 48px 16px; } .purpose-close { padding: 40px 20px; } .purpose-art { height: 220px; } .art-caption { font-size: 7px; letter-spacing: .1em; } }
 @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* Shared charcoal footer. */
+footer { width: 100%; padding: 40px 24px; border-top: 0; background: #242124; color: #f4f1f7; }
+footer p, footer small { color: #bdb5c6; }
+footer a:hover { color: #d7b8ff; }
