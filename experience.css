@@ -612,3 +612,39 @@
 .experience .final-call h2 { max-width: none; margin-inline: auto; }
 .experience .final-note { align-items: center; justify-content: center; flex-wrap: wrap; }
 .experience .service-card { text-align: center; }
+
+/* A quiet, sculptural invitation to start a project. */
+.experience .work-with-us {
+  position: relative;
+  display: block;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 64px;
+  padding: clamp(40px, 6vw, 80px) 24px 32px;
+  border: 1px solid #ffffffb3;
+  border-radius: 28px;
+  background: #faf7ff;
+  box-shadow: 0 16px 60px #49246d08;
+  text-align: center;
+}
+.project-call-content { position: relative; z-index: 1; max-width: 760px; margin-inline: auto; }
+.experience .work-with-us .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 28px; padding: 9px 14px; border: 1px solid #6d28f01c; border-radius: 999px; color: #613799; background: #ffffffb3; font-size: 10px; letter-spacing: .13em; }
+.project-call-dot { width: 6px; height: 6px; border-radius: 50%; background: #8c58ce; }
+.experience .work-with-us #project-call-title { margin: 0; font-size: clamp(34px, 5.4vw, 68px); font-weight: 500; line-height: 1.08; letter-spacing: -.055em; }
+#project-call-title em { color: #7841bd; font-style: normal; }
+.experience .project-call-description { margin: 24px auto 30px; max-width: 42ch; color: #74657f; font-size: 15px; line-height: 1.8; }
+.experience .project-call-button { min-height: 52px; padding: 0 30px; border-radius: 999px; background: #261535; color: #fff; box-shadow: 0 6px 18px #26153518; transition: background .2s, box-shadow .2s; }
+.experience .project-call-button:hover { background: #6d28f0; box-shadow: 0 8px 26px #6d28f025; }
+.project-call-steps { display: flex; justify-content: center; flex-wrap: wrap; gap: 28px; margin-top: 44px; padding-top: 24px; border-top: 1px solid #6d28f014; color: #8a7c95; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.project-call-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.project-call-art::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 0% 100%, #e0cbf75c, transparent 50%), radial-gradient(ellipse at 100% 0%, #e0cbf775, transparent 45%); }
+.project-call-art span { position: absolute; width: clamp(200px, 30vw, 400px); aspect-ratio: 1; border: 1px solid #a279cc26; border-radius: 50%; left: -18%; top: 12%; }
+.project-call-art span:nth-child(2) { left: auto; right: -14%; top: -24%; width: clamp(280px, 40vw, 520px); }
+.project-call-art span:nth-child(3) { left: auto; right: -17%; top: -20%; width: clamp(280px, 40vw, 520px); }
+@media (max-width: 560px) {
+  .experience .work-with-us { margin-top: 48px; border-radius: 20px; padding: 40px 20px 24px; }
+  .experience .project-call-description { font-size: 14px; }
+  .project-call-steps { gap: 18px; margin-top: 32px; font-size: 9px; }
+  .project-call-art span { left: -65%; opacity: .6; }
+  .project-call-art span:nth-child(2), .project-call-art span:nth-child(3) { right: -65%; opacity: .6; }
+}
